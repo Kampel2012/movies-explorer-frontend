@@ -1,5 +1,13 @@
+import AboutProject from './AboutProject/AboutProject';
+import Promo from './Promo/Promo';
+
 function Main(props) {
-  return <div>О проекте</div>;
+  return (
+    <>
+      <Promo />
+      <AboutProject />
+    </>
+  );
 }
 
 export default Main;

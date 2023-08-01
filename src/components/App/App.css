@@ -1,0 +1,8 @@
+.App {
+  margin: 0;
+  padding: 0;
+  background: #073042;
+  color: white;
+  font-family: 'Inter', sans-serif, Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
