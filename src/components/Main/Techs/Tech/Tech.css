@@ -1,0 +1,15 @@
+.tech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+  border-radius: 10px;
+  background-color: #303030;
+  width: 90px;
+  height: 60px;
+  flex-shrink: 0;
+}

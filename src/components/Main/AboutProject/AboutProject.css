@@ -19,7 +19,7 @@
   font-weight: 400;
 }
 .about-project__container {
-  border-top: 2px solid rgba(218, 218, 218, 0.5);
+  border-top: 1px solid rgba(218, 218, 218, 0.5);
   display: flex;
   gap: 40px;
 }
