@@ -1,17 +1,25 @@
 .footer {
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0 70px;
-  font-size: 13px;
-  max-width: 1280px;
+
+  background: #202020;
 }
+
 .footer__title {
   color: #8b8b8b;
   text-align: center;
   margin: 0;
-  padding: 79px 0 20px 0;
+  padding: 80px 0 20px 0;
 }
+
 .footer__container {
+  font-size: 13px;
+  max-width: 1280px;
+  padding: 0 70px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.footer__wrapper {
   color: white;
   display: flex;
   justify-items: center;
@@ -19,13 +27,16 @@
   border-top: 1px solid #424242;
   padding: 20px 0;
 }
+
 .footer__year {
   margin: 0;
 }
+
 .footer__nav {
   display: flex;
   gap: 20px;
 }
+
 .footer__nav_link {
   color: white;
   text-decoration: none;
