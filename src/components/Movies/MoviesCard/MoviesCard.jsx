@@ -1,7 +1,28 @@
 import './MoviesCard.css';
 import markcheck from '../../../images/check-mark-black-outline.png';
 
-function MoviesCard({ isSaved }) {
+function MoviesCard({ isSaved, pathname = '/movies' }) {
+  const bntElement =
+    pathname === '/saved-movies' ? (
+      <button type="button" className="movies-card__button">
+        &#215;
+      </button>
+    ) : isSaved ? (
+      <button
+        type="button"
+        className="movies-card__button movies-card__button_type_saved">
+        <img
+          src={markcheck}
+          alt="Сохранено"
+          className="movies-card__image movies-card__image_type_saved"
+        />
+      </button>
+    ) : (
+      <button type="button" className="movies-card__button">
+        Сохранить
+      </button>
+    );
+
   return (
     <div className="movies-card">
       <div className="movies-card__info">
@@ -15,21 +36,7 @@ function MoviesCard({ isSaved }) {
         alt="В погоне за Бенкси"
         className="movies-card__image"
       />
-      {isSaved ? (
-        <button
-          type="button"
-          className="movies-card__button movies-card__button_type_saved">
-          <img
-            src={markcheck}
-            alt="Сохранено"
-            className="movies-card__image movies-card__image_type_saved"
-          />
-        </button>
-      ) : (
-        <button type="button" className="movies-card__button">
-          Сохранить
-        </button>
-      )}
+      {bntElement}
     </div>
   );
 }

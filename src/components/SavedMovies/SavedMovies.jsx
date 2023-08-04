@@ -1,5 +1,17 @@
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import SearchForm from '../Movies/SearchForm/SearchForm';
+import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
+
 function SavedMovies(props) {
-  return <div>компонент страницы с сохранёнными карточками фильмов.</div>;
+  return (
+    <>
+      <Header isAuth={true} />
+      <SearchForm />
+      <MoviesCardList />
+      <Footer />
+    </>
+  );
 }
 
 export default SavedMovies;
