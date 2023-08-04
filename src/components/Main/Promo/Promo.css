@@ -1,9 +1,14 @@
 .promo {
+  background-color: rgba(7, 48, 66, 1);
+}
+
+.promo__wrapper {
   max-width: 1280px;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0 70px 75px 70px;
 }
+
 .promo__container {
   box-sizing: border-box;
   display: flex;
@@ -12,6 +17,7 @@
   padding-top: 75px;
   padding-bottom: 84px;
 }
+
 .promo__title {
   margin: 0;
   max-width: 640px;
@@ -20,6 +26,7 @@
   padding: 0;
   font-weight: 400;
 }
+
 .promo__subtitle {
   margin-top: 36px;
   padding: 0;
@@ -27,6 +34,7 @@
   opacity: 0.5;
   max-width: 310px;
 }
+
 .promo__btn {
   box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.6);

@@ -1,8 +1,12 @@
 .App {
   margin: 0;
   padding: 0;
-  background: #073042;
+  background: rgba(32, 32, 32, 1);
   color: white;
   font-family: 'Inter', sans-serif, Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 }

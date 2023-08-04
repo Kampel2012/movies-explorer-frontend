@@ -1,0 +1,15 @@
+.loading-button {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 6px;
+  background: #2f2f2f;
+  border: none;
+  box-sizing: border-box;
+  padding: 10px 0;
+  width: 100%;
+  cursor: pointer;
+}

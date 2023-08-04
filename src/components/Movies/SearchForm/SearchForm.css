@@ -1,0 +1,56 @@
+.search-form {
+  background-color: inherit;
+}
+
+.search-form__container {
+  max-width: 1280px;
+  box-sizing: border-box;
+  padding: 70px;
+  margin: 0 auto;
+}
+
+.search-form__field-text {
+  border-radius: 8px;
+  border: 1.5px solid rgba(170, 170, 170, 0.2);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 26px;
+}
+
+.search-form__input {
+  flex-grow: 1;
+  background-color: inherit;
+  border: none;
+  padding: 26px;
+  color: white;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 111.111% */
+  outline: none;
+}
+
+.search-form__input::placeholder {
+  color: #8b8b8b;
+}
+
+.search-form__submit-btn {
+  border: none;
+  border-radius: 5px;
+  background: #4285f4;
+  margin: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
+  padding: 0 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
