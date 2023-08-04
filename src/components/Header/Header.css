@@ -30,14 +30,17 @@
 }
 
 .header__btn {
-  font-size: 12px;
-  line-height: 16px;
   background-color: inherit;
   border: 0;
   color: #ffffff;
   padding: 8px 20px;
   font-weight: 500;
   cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
 }
 
 .btn_populary {
@@ -48,7 +51,8 @@
 }
 
 .header__wrapper_type_auth {
-  gap: 50px;
+  gap: 0px;
+  max-height: 30px;
 }
 
 .header__profile {
@@ -56,6 +60,7 @@
 }
 
 .header__icon {
+  align-self: center;
   box-sizing: border-box;
   padding: 10px;
   border-radius: 6px;
