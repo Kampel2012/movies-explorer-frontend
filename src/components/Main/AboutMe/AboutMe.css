@@ -44,7 +44,7 @@
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
-  line-height: 58px; /* 116% */
+  line-height: 58px;
   letter-spacing: -2px;
   margin: 0 0 18px 0;
 }
@@ -55,7 +55,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: 20px;
   margin: 0 0 26px 0;
 }
 
@@ -67,7 +67,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 157.143% */
+  line-height: 22px;
 }
 
 .about-me__photo {
@@ -79,4 +79,22 @@
   text-decoration: none;
   color: white;
   display: block;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me__container {
+    padding: 90px 50px 90px 50px;
+  }
+
+  .about-me__about {
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 364px;
+  }
+
+  .about-me__photo {
+    max-width: 255px;
+  }
 }

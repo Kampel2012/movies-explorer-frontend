@@ -94,14 +94,19 @@
 .menu-popup__link {
   text-decoration: none;
   box-sizing: border-box;
-  padding: 0 0 22px 0;
+  padding: 0 0 4px 0;
   display: block;
   color: white;
+  max-width: max-content;
+  margin: 0 auto 18px auto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .menu-popup__link_active {
-  color: #000;
-  text-decoration: dashed;
+  border-bottom: 2px solid white;
 }
 
 .menu-popup__account-link {

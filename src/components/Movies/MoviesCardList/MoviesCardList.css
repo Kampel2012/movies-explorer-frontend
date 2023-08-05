@@ -20,3 +20,15 @@
 .movies-card__load {
   margin: 60px auto 80px auto;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-card-list__container {
+    padding: 0 30px;
+  }
+
+  .movies-card-list__wrapper {
+    grid-template-columns: repeat(2, minmax(0, 342px));
+    row-gap: 24px;
+    column-gap: 35px;
+  }
+}

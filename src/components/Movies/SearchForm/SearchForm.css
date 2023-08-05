@@ -27,11 +27,10 @@
   padding: 26px;
   color: white;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 111.111% */
+  line-height: 20px;
   outline: none;
 }
 
@@ -49,8 +48,23 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
+  line-height: 18px;
   padding: 0 25px;
   box-sizing: border-box;
   cursor: pointer;
+}
+
+.search-form__form {
+  border-bottom: 1px solid rgba(170, 170, 170, 0.2);
+  box-sizing: border-box;
+  padding-bottom: 44px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__container {
+    padding: 70px 30px;
+  }
+  .search-form__form {
+    padding-bottom: 52px;
+  }
 }

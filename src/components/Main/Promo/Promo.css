@@ -13,7 +13,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   padding-top: 75px;
   padding-bottom: 84px;
 }
@@ -45,4 +45,41 @@
   color: white;
   border-radius: 3px;
   padding: 10px 20px;
+}
+
+@media screen and (max-width: 1089px) {
+  .promo__title {
+    margin-top: 45px;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+  }
+
+  .promo__container {
+    justify-content: center;
+    text-align: center;
+  }
+  .promo__subtitle {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 260px;
+  }
+  .promo__wrapper {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .promo__container {
+    justify-content: center;
+    text-align: center;
+  }
+  .promo__wrapper {
+    padding: 0 45px 75px 45px;
+  }
 }

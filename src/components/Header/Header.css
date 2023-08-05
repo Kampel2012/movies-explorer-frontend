@@ -66,3 +66,13 @@
   background: #313131;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    padding: 18px 30px;
+  }
+
+  .header__btn {
+    font-size: 12px;
+  }
+}

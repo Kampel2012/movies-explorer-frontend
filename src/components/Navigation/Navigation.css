@@ -1,17 +1,11 @@
-.navigation__container {
-  max-width: 1280px;
-  margin: 0 auto;
-  max-height: 74px;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding: 18px 70px;
-}
-
 .navigation__wrapper {
   display: flex;
   gap: 0px;
   max-height: 30px;
+}
+
+.navigation__btn_tab {
+  display: none;
 }
 
 .navigation__buttons-wrapper {
@@ -21,20 +15,58 @@
 .navigation__btn {
   background-color: inherit;
   border: 0;
-  color: #ffffff;
   padding: 8px 20px;
-  font-weight: 500;
   cursor: pointer;
   color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
-  border-radius: 3px;
-  box-sizing: border-box;
+  line-height: 18px;
+  text-decoration: none;
 }
 
 .navigation__btn_active {
   background-color: #3ddc84;
   color: black;
+}
+
+.navigation__btn_type_profile {
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+}
+
+.navigation__icon {
+  align-self: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 6px;
+  background: #313131;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.navigation__icon_type_burger {
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__wrapper {
+    display: none;
+  }
+
+  .navigation__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .navigation__btn_tab {
+    display: flex;
+  }
+
+  .navigation__btn {
+    border: 0;
+    padding: 0;
+    max-width: 44px;
+  }
 }

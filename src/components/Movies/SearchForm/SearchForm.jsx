@@ -5,7 +5,7 @@ function SearchForm(props) {
   return (
     <section className="search-form">
       <div className="search-form__container">
-        <form>
+        <form className="search-form__form">
           <fieldset className="search-form__field-text">
             <input
               type="search"
