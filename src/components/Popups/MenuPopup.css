@@ -1,0 +1,127 @@
+.menu-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 999;
+  background: transparent;
+}
+
+.menu-popup_opened {
+  height: 100%;
+}
+
+.menu-popup__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(32, 32, 32, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 0;
+}
+
+.menu-popup__overlay_open {
+  opacity: 1;
+  height: 100%;
+}
+
+.menu-popup__content {
+  width: 520px;
+  height: 100%;
+  background: #202020;
+  opacity: 1;
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-popup__content_active {
+  transform: translateX(0);
+}
+
+.menu-popup__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-popup__close-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-popup__close-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-popup__close-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.menu-popup__links {
+  list-style: none;
+  padding: 0;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.menu-popup__link {
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 0 0 22px 0;
+  display: block;
+  color: white;
+}
+
+.menu-popup__link_active {
+  color: #000;
+  text-decoration: dashed;
+}
+
+.menu-popup__account-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  margin-top: auto;
+  padding-bottom: 92px;
+}
+
+.menu-popup__icon {
+  align-self: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 6px;
+  background: #313131;
+  cursor: pointer;
+}

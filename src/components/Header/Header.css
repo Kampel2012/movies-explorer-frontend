@@ -32,15 +32,14 @@
 .header__btn {
   background-color: inherit;
   border: 0;
-  color: #ffffff;
   padding: 8px 20px;
-  font-weight: 500;
   cursor: pointer;
   color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
+  line-height: 22px; /* 128.571% */
+  text-decoration: none;
 }
 
 .btn_populary {

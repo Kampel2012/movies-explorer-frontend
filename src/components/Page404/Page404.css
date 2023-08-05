@@ -1,0 +1,43 @@
+.page404 {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page404__container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.page404__title {
+  color: #fff;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.page404__subtitle {
+  margin: 0;
+  padding: 0 0 184px 0;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.page404__link {
+  text-decoration: none;
+  color: #4285f4;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
