@@ -8,15 +8,30 @@ function Portfolio(props) {
         <h3 className="portfolio__name-section">Портфолио</h3>
         <nav className="portfolio__nav">
           <li className="portfolio__wrapper">
-            <Link className="portfolio__link">Статичный сайт</Link>
+            <Link
+              className="portfolio__link"
+              target="_blank"
+              to={'https://github.com/Kampel2012/russian-travel'}>
+              Статичный сайт
+            </Link>
             <span className="portfolio__arrow">↗</span>
           </li>
           <li className="portfolio__wrapper">
-            <Link className="portfolio__link">Адаптивный сайт</Link>
+            <Link
+              className="portfolio__link"
+              target="_blank"
+              to={'https://github.com/Kampel2012/PicSearcher'}>
+              Адаптивный сайт
+            </Link>
             <span className="portfolio__arrow">↗</span>
           </li>
           <li className="portfolio__wrapper">
-            <Link className="portfolio__link">Одностраничное приложение</Link>
+            <Link
+              className="portfolio__link"
+              target="_blank"
+              to={'https://github.com/Kampel2012/slice-and-dice'}>
+              Одностраничное приложение
+            </Link>
             <span className="portfolio__arrow">↗</span>
           </li>
         </nav>

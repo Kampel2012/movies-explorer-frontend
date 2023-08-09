@@ -12,11 +12,13 @@ function Footer() {
           <p className="footer__year">© 2023</p>
           <nav className="footer__nav">
             <Link
+              target="_blank"
               className="footer__nav_link"
               to={'https://practicum.yandex.ru/'}>
               Яндекс.Практикум
             </Link>
             <Link
+              target="_blank"
               className="footer__nav_link"
               to={'https://github.com/Kampel2012'}>
               GitHub

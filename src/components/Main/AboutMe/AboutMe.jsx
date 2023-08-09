@@ -24,6 +24,7 @@ function AboutMe() {
             <div>
               <Link
                 className="about-me__link"
+                target="_blank"
                 to={'https://github.com/Kampel2012'}>
                 Github
               </Link>
