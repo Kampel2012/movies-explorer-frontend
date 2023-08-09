@@ -46,3 +46,44 @@
     padding: 0 30px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .footer__container {
+    padding: 0 14px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .footer__container {
+    padding: 0 10px;
+  }
+
+  .footer__title {
+    font-size: 12px;
+    line-height: normal;
+  }
+
+  .footer__nav_link {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .footer__nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .footer__year {
+    text-align: center;
+    color: #8b8b8b;
+    font-size: 12px;
+  }
+
+  .footer__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+}

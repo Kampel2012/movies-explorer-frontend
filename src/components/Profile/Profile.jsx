@@ -7,8 +7,8 @@ function Profile({ name = 'Виталий', email = 'pochta@yandex.ru' }) {
       <Header isAuth={true} />
       <section className="profile">
         <div className="profile__container">
-          <h1 className="profile__title">{`Привет, ${name}!`}</h1>
           <div className="profile__info">
+            <h1 className="profile__title">{`Привет, ${name}!`}</h1>
             <p className="profile__info-field">
               <span className="profile__tag">Имя</span>
               <span className="profile__tag">{name}</span>

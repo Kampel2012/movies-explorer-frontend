@@ -11,7 +11,7 @@ function Header({ isAuth }) {
   return (
     <header className={headerStyle}>
       <div className="header__container">
-        <Link to={'/'}>
+        <Link to={'/'} className="header__link">
           <img src={logo} alt="Логотип" className="header__logo" />
         </Link>
 

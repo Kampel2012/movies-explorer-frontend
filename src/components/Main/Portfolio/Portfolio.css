@@ -67,13 +67,39 @@
   .portfolio__wrapper {
     color: #fff;
     font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 50px;
     letter-spacing: -1.12px;
   }
 
   .portfolio__wrapper:not(:first-child) {
     border-top: 1px solid #e6e6e6;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .portfolio__container {
+    padding: 0 14px 70px 14px;
+  }
+
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__arrow {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__wrapper {
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .portfolio__name-section {
+    font-size: 14px;
+    line-height: 20px;
   }
 }

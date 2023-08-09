@@ -52,3 +52,30 @@
   transform: translateX(16px);
   background-color: #ffffff;
 }
+
+.filter-checkbox__text {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-checkbox__slider {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 10px;
+    background-color: #343434;
+    transition: 0.4s;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .filter-checkbox__text {
+    font-size: 11px;
+    line-height: 18px;
+  }
+}

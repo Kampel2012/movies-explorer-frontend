@@ -71,3 +71,52 @@
     grid-template-columns: repeat(7, minmax(0, 84px));
   }
 }
+
+@media screen and (max-width: 550px) {
+  .techs__stack {
+    padding-top: 50px;
+    grid-template-columns: repeat(3, minmax(0, 84px));
+    gap: 10px;
+  }
+
+  .techs__title {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    padding-top: 60px;
+  }
+
+  .techs__subtitle {
+    max-width: 300px;
+  }
+
+  .techs__container {
+    padding: 70px 14px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .techs {
+    background: #202020;
+  }
+
+  .techs__subtitle {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
+
+  .techs__container {
+    padding: 70px 14px;
+  }
+
+  .techs__stack {
+    padding-top: 50px;
+    grid-template-columns: repeat(2, minmax(0, 84px));
+    gap: 10px;
+  }
+
+  .techs__name-section {
+    margin-bottom: 28px;
+  }
+}

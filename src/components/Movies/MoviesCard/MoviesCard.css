@@ -21,7 +21,6 @@
   text-align: left;
   color: #fff;
   font-size: 15px;
-  font-style: normal;
   font-weight: 500;
   line-height: 18px;
   padding: 0;
@@ -51,9 +50,7 @@
   border-radius: 30px;
   background: #313131;
   color: #fff;
-  text-align: center;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: 11px;
   border: none;
@@ -68,4 +65,35 @@
 
 .movies-card__image_type_saved {
   width: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card__image {
+    max-height: 190px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .movies-card__image {
+    max-height: 168px;
+  }
+
+  .movies-card__info {
+    padding: 14px;
+  }
+
+  .movies-card__title {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .movies-card__time {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .movies-card__button {
+    margin: 14px auto;
+  }
 }

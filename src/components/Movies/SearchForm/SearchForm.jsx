@@ -8,7 +8,7 @@ function SearchForm(props) {
         <form className="search-form__form">
           <fieldset className="search-form__field-text">
             <input
-              type="search"
+              type="text"
               placeholder="Фильм"
               className="search-form__input"
             />
