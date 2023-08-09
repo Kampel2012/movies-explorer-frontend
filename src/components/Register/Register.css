@@ -7,19 +7,19 @@
   color: white;
 }
 
-.register-container {
+.register__container {
   width: 394px;
   background-color: inherit;
   border: none;
   border-radius: 10px;
 }
 
-.register-logo {
+.register__logo {
   text-align: left;
   padding-bottom: 33px;
 }
 
-.register-form-title {
+.register__form-title {
   color: #fff;
   font-family: Inter;
   font-size: 24px;
@@ -30,20 +30,20 @@
   margin: 0;
 }
 
-.register-form-group {
+.register__form-group {
   margin-bottom: 0;
   box-sizing: border-box;
   padding: 0 0 24px 0;
   border: none;
 }
 
-.register-form-label {
+.register__form-label {
   color: #8b8b8b;
   font-size: 10px;
   display: block;
 }
 
-.register-form-input {
+.register__form-input {
   box-sizing: border-box;
   width: 100%;
   padding: 10px 0;
@@ -54,21 +54,21 @@
   color: white;
 }
 
-.register-form-input:focus {
+.register__form-input:focus {
   border-bottom-color: #4285f4;
   outline: none;
 }
 
-.register-form-input_type_error {
+.register__form-input_type_error {
   color: #ee3465;
 }
 
-.register-error-message {
+.register__error-message {
   color: #ee3465;
   font-size: 10px;
 }
 
-.register-button {
+.register__button {
   width: 100%;
   padding: 14px 0;
   font-size: 14px;
@@ -81,7 +81,7 @@
   margin-top: 105px;
 }
 
-.register-question {
+.register__question {
   text-align: center;
   margin: 16px 0 0 0;
   padding: 0;
@@ -89,43 +89,55 @@
   font-size: 14px;
 }
 
-.register-link {
+.register__link {
   cursor: pointer;
   text-decoration: none;
   color: rgba(66, 133, 244, 1);
 }
 
+.register__link:hover {
+  opacity: 0.7;
+}
+
+.register__button:hover {
+  opacity: 0.7;
+}
+
+.register__logo-image:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 550px) {
-  .register-container {
+  .register__container {
     width: 260px;
     margin: 30px 0 0 0;
   }
 
-  .register-logo {
+  .register__logo {
     text-align: center;
     padding-bottom: 47px;
   }
 
-  .register-form-title {
+  .register__form-title {
     text-align: center;
     padding: 0 0 82px 0;
   }
 
-  .register-form-group {
+  .register__form-group {
     padding: 0 0 25px 0;
     margin-bottom: 0;
   }
 
-  .register-form-input {
+  .register__form-input {
     padding: 10px 0 5px 0;
   }
 
-  .register-button {
+  .register__button {
     margin-top: 200px;
     font-size: 12px;
   }
 
-  .register-question {
+  .register__question {
     font-size: 12px;
   }
 }

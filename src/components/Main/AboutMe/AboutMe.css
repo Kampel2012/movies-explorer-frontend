@@ -83,6 +83,10 @@
   font-size: 14px;
 }
 
+.about-me__link:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 768px) {
   .about-me__container {
     padding: 90px 50px 90px 50px;

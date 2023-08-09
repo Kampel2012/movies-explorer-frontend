@@ -7,19 +7,19 @@
   color: white;
 }
 
-.login-container {
+.login__container {
   width: 394px;
   background-color: inherit;
   border: none;
   border-radius: 10px;
 }
 
-.login-logo {
+.login__logo {
   text-align: left;
   padding-bottom: 33px;
 }
 
-.login-form-title {
+.login__form-title {
   color: #fff;
   font-family: Inter;
   font-size: 24px;
@@ -30,20 +30,20 @@
   margin: 0;
 }
 
-.login-form-group {
+.login__form-group {
   margin-bottom: 0;
   box-sizing: border-box;
   padding: 0 0 24px 0;
   border: none;
 }
 
-.login-form-label {
+.login__form-label {
   color: #8b8b8b;
   font-size: 10px;
   display: block;
 }
 
-.login-form-input {
+.login__form-input {
   box-sizing: border-box;
   width: 100%;
   padding: 10px 0;
@@ -54,21 +54,21 @@
   color: white;
 }
 
-.login-form-input:focus {
+.login__form-input:focus {
   border-bottom-color: #4285f4;
   outline: none;
 }
 
-.login-form-input_type_error {
+.login__form-input_type_error {
   color: #ee3465;
 }
 
-.login-error-message {
+.login__error-message {
   color: #ee3465;
   font-size: 10px;
 }
 
-.login-button {
+.login__button {
   width: 100%;
   padding: 14px 0;
   font-size: 14px;
@@ -81,7 +81,7 @@
   margin-top: 180px;
 }
 
-.login-question {
+.login__question {
   text-align: center;
   margin: 16px 0 0 0;
   padding: 0;
@@ -89,43 +89,55 @@
   font-size: 14px;
 }
 
-.login-link {
+.login__link {
   cursor: pointer;
   text-decoration: none;
   color: rgba(66, 133, 244, 1);
 }
 
+.login__link:hover {
+  opacity: 0.7;
+}
+
+.login__button:hover {
+  opacity: 0.7;
+}
+
+.login__logo-image:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 550px) {
-  .login-container {
+  .login__container {
     width: 260px;
     margin: 24px 0 0 0;
   }
 
-  .login-logo {
+  .login__logo {
     text-align: center;
     padding-bottom: 47px;
   }
 
-  .login-form-title {
+  .login__form-title {
     text-align: center;
     padding: 0 0 82px 0;
   }
 
-  .login-form-group {
+  .login__form-group {
     padding: 0 0 25px 0;
     margin-bottom: 0;
   }
 
-  .login-form-input {
+  .login__form-input {
     padding: 10px 0 5px 0;
   }
 
-  .login-button {
+  .login__button {
     margin-top: 265px;
     font-size: 12px;
   }
 
-  .login-question {
+  .login__question {
     font-size: 12px;
   }
 }
