@@ -1,0 +1,24 @@
+.nav-tab__btn {
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: white;
+  border-radius: 3px;
+  padding: 10px 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-tab__link {
+  background-color: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px 20px;
+}

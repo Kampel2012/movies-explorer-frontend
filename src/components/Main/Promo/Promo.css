@@ -35,18 +35,6 @@
   max-width: 310px;
 }
 
-.promo__btn {
-  box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background-color: inherit;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  color: white;
-  border-radius: 3px;
-  padding: 10px 20px;
-}
-
 .promo__image {
   max-width: 310px;
 }
@@ -64,6 +52,7 @@
     justify-content: center;
     text-align: center;
   }
+
   .promo__subtitle {
     margin-right: auto;
     margin-left: auto;
@@ -73,6 +62,7 @@
     line-height: normal;
     max-width: 260px;
   }
+
   .promo__wrapper {
     text-align: center;
   }

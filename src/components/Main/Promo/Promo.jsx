@@ -1,5 +1,6 @@
 import './Promo.css';
 import promoLogo from './../../../images/text__COLOR_landing-logo.png';
+import NavTab from '../NavTab/NavTab';
 
 function Promo(props) {
   return (
@@ -19,9 +20,7 @@ function Promo(props) {
             <img src={promoLogo} alt="Промо-лого" className="promo__image" />
           </div>
         </div>
-        <button type="button" className="promo__btn">
-          Узнать больше
-        </button>
+        <NavTab />
       </div>
     </section>
   );
