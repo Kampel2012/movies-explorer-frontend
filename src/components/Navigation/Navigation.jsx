@@ -1,27 +1,39 @@
 import iconMain from './../../images/icon__COLOR_icon-main.svg';
 import iconHamburger from './../../images/icon__hamburger.svg';
 import './Navigation.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MenuPopup from './../Popups/MenuPopup';
 import { useState } from 'react';
 
 function Navigation(props) {
+  const { pathname } = useLocation();
+  const isActive = (path) => pathname === path;
   const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div className="navigation__container">
       <div className="navigation__wrapper">
         <div className="navigation__buttons-wrapper">
-          <Link className="navigation__btn" to={'/movies'}>
+          <Link
+            className={`navigation__btn ${
+              isActive('/movies') ? 'navigation__btn_active_desc' : ''
+            }`}
+            to={'/movies'}>
             Фильмы
           </Link>
-          <Link className="navigation__btn" to={'/saved-movies'}>
+          <Link
+            className={`navigation__btn ${
+              isActive('/saved-movies') ? 'navigation__btn_active_desc' : ''
+            }`}
+            to={'/saved-movies'}>
             Сохранённые фильмы
           </Link>
         </div>
 
         <Link
-          className="navigation__btn navigation__btn_type_profile"
+          className={`navigation__btn navigation__btn_type_profile ${
+            isActive('/profile') ? 'navigation__btn_active_desc' : ''
+          }`}
           to={'/profile'}>
           Аккаунт
           <img
