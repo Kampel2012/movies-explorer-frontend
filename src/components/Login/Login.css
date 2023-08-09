@@ -9,7 +9,6 @@
 
 .login-container {
   width: 394px;
-  height: 560px;
   background-color: inherit;
   border: none;
   border-radius: 10px;
@@ -94,4 +93,39 @@
   cursor: pointer;
   text-decoration: none;
   color: rgba(66, 133, 244, 1);
+}
+
+@media screen and (max-width: 550px) {
+  .login-container {
+    width: 260px;
+    margin: 24px 0 0 0;
+  }
+
+  .login-logo {
+    text-align: center;
+    padding-bottom: 47px;
+  }
+
+  .login-form-title {
+    text-align: center;
+    padding: 0 0 82px 0;
+  }
+
+  .login-form-group {
+    padding: 0 0 25px 0;
+    margin-bottom: 0;
+  }
+
+  .login-form-input {
+    padding: 10px 0 5px 0;
+  }
+
+  .login-button {
+    margin-top: 265px;
+    font-size: 12px;
+  }
+
+  .login-question {
+    font-size: 12px;
+  }
 }

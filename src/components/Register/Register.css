@@ -94,3 +94,38 @@
   text-decoration: none;
   color: rgba(66, 133, 244, 1);
 }
+
+@media screen and (max-width: 550px) {
+  .register-container {
+    width: 260px;
+    margin: 30px 0 0 0;
+  }
+
+  .register-logo {
+    text-align: center;
+    padding-bottom: 47px;
+  }
+
+  .register-form-title {
+    text-align: center;
+    padding: 0 0 82px 0;
+  }
+
+  .register-form-group {
+    padding: 0 0 25px 0;
+    margin-bottom: 0;
+  }
+
+  .register-form-input {
+    padding: 10px 0 5px 0;
+  }
+
+  .register-button {
+    margin-top: 200px;
+    font-size: 12px;
+  }
+
+  .register-question {
+    font-size: 12px;
+  }
+}
