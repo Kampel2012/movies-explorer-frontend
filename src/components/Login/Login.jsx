@@ -7,7 +7,9 @@ function Login(props) {
     <section className="login">
       <form className="login-container">
         <div className="login-logo">
-          <img src={logo} alt="Логотип" className="login-logo__image" />
+          <Link to={'/'}>
+            <img src={logo} alt="Логотип" className="login-logo__image" />
+          </Link>
         </div>
         <h2 className="login-form-title">Рады видеть!</h2>
         <div className="login-form-group">

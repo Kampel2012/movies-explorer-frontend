@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './AboutMe.css';
-import photo from './../../../images/photo.JPG';
+import photo from './../../../images/photo.jfif';
 
 function AboutMe() {
   return (
