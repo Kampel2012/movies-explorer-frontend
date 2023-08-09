@@ -29,6 +29,10 @@
   text-decoration: none;
 }
 
+.page404__link:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 768px) {
   .page404__container {
     margin: 410px auto auto auto;
