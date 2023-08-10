@@ -4,7 +4,7 @@
   max-height: 30px;
 }
 
-.navigation__btn_tab {
+.navigation__btn-tab {
   display: none;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .navigation__btn:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .navigation__btn_active {
@@ -67,11 +67,11 @@
     display: none;
   }
 
-  .navigation__container {
+  .navigation {
     display: flex;
   }
 
-  .navigation__btn_tab {
+  .navigation__btn-tab {
     display: flex;
   }
 

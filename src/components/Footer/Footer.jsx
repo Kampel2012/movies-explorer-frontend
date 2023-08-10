@@ -13,13 +13,13 @@ function Footer() {
           <nav className="footer__nav">
             <Link
               target="_blank"
-              className="footer__nav_link"
+              className="footer__link"
               to={'https://practicum.yandex.ru/'}>
               Яндекс.Практикум
             </Link>
             <Link
               target="_blank"
-              className="footer__nav_link"
+              className="footer__link"
               to={'https://github.com/Kampel2012'}>
               GitHub
             </Link>

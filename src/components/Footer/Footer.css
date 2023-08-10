@@ -36,12 +36,12 @@
   gap: 20px;
 }
 
-.footer__nav_link {
+.footer__link {
   color: white;
   text-decoration: none;
 }
 
-.footer__nav_link:hover {
+.footer__link:hover {
   opacity: 0.7;
 }
 
@@ -67,7 +67,7 @@
     line-height: normal;
   }
 
-  .footer__nav_link {
+  .footer__link {
     width: 100%;
     flex-shrink: 0;
   }

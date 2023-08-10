@@ -11,6 +11,7 @@ function SearchForm(props) {
               type="text"
               placeholder="Фильм"
               className="search-form__input"
+              required={true}
             />
             <button className="search-form__submit-btn">Поиск</button>
           </fieldset>

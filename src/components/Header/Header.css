@@ -43,7 +43,7 @@
   text-decoration: none;
 }
 
-.btn_populary {
+.header__btn_populary {
   background-color: #3ddc84;
   border-radius: 3px;
   box-sizing: border-box;
@@ -74,11 +74,11 @@
 }
 
 .header__btn:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .header__logo:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {

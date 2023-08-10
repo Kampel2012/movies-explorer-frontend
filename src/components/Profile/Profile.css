@@ -86,7 +86,7 @@
 }
 
 .profile__btn:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {

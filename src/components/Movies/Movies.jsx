@@ -7,8 +7,10 @@ function Movies(props) {
   return (
     <>
       <Header isAuth={true} />
-      <SearchForm />
-      <MoviesCardList />
+      <main className="movies">
+        <SearchForm />
+        <MoviesCardList />
+      </main>
       <Footer />
     </>
   );

@@ -20,7 +20,7 @@ function Header({ isAuth }) {
             <Link className="header__btn" to={'/signup'}>
               Регистрация
             </Link>
-            <Link className="header__btn btn_populary" to={'/signin'}>
+            <Link className="header__btn header__btn_populary" to={'/signin'}>
               Войти
             </Link>
           </div>

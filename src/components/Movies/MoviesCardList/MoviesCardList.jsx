@@ -22,7 +22,7 @@ function MoviesCardList(props) {
           <MoviesCard isSaved={true} pathname={pathname} />
           <MoviesCard isSaved={true} pathname={pathname} />
         </div>
-        <div className="movies-card__load">
+        <div className="movies-card-list__load">
           {false ? <Preloader /> : <LoadingButton />}
         </div>
       </div>

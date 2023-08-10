@@ -11,7 +11,7 @@ function Navigation(props) {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <div className="navigation__container">
+    <div className="navigation">
       <div className="navigation__wrapper">
         <div className="navigation__buttons-wrapper">
           <Link
@@ -43,7 +43,7 @@ function Navigation(props) {
           />
         </Link>
       </div>
-      <div className="navigation__btn_tab">
+      <div className="navigation__btn-tab">
         <button
           onClick={() => setShowPopup(true)}
           type="button"

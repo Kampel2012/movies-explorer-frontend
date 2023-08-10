@@ -5,7 +5,7 @@ function Profile({ name = 'Виталий', email = 'pochta@yandex.ru' }) {
   return (
     <>
       <Header isAuth={true} />
-      <section className="profile">
+      <main className="profile">
         <div className="profile__container">
           <div className="profile__info">
             <h1 className="profile__title">{`Привет, ${name}!`}</h1>
@@ -29,7 +29,7 @@ function Profile({ name = 'Виталий', email = 'pochta@yandex.ru' }) {
             </button>
           </div>
         </div>
-      </section>
+      </main>
     </>
   );
 }

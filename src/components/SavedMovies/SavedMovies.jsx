@@ -7,8 +7,10 @@ function SavedMovies(props) {
   return (
     <>
       <Header isAuth={true} />
-      <SearchForm />
-      <MoviesCardList />
+      <main className="saved-movies">
+        <SearchForm />
+        <MoviesCardList />
+      </main>
       <Footer />
     </>
   );

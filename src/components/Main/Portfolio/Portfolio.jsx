@@ -6,7 +6,7 @@ function Portfolio(props) {
     <section className="portfolio">
       <div className="portfolio__container">
         <h3 className="portfolio__name-section">Портфолио</h3>
-        <nav className="portfolio__nav">
+        <ul className="portfolio__nav">
           <li className="portfolio__wrapper">
             <Link
               className="portfolio__link"
@@ -34,7 +34,7 @@ function Portfolio(props) {
             </Link>
             <span className="portfolio__arrow">↗</span>
           </li>
-        </nav>
+        </ul>
       </div>
     </section>
   );
