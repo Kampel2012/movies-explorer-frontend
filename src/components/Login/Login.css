@@ -61,7 +61,7 @@
   color: white;
   border: none;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 221px;
 }
 
 .login__question {
@@ -121,6 +121,7 @@
 
   .login__button {
     font-size: 12px;
+    margin-top: 309px;
   }
 
   .login__question {

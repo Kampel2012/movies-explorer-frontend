@@ -92,7 +92,7 @@
 @media screen and (max-width: 768px) {
   .profile__container {
     justify-content: center;
-    padding: 0px 30px;
+    padding: 236px 30px;
   }
 
   .profile__title {
@@ -112,11 +112,13 @@
 
 @media screen and (max-width: 320px) {
   .profile__container {
+    padding-top: 0px;
+    padding-bottom: 0px;
     justify-content: space-between;
   }
 
   .profile__wrapper {
-    padding-top: 0px;
+    padding-top: 364px;
     padding-bottom: 40px;
   }
 
