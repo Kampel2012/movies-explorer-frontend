@@ -1,0 +1,130 @@
+.login {
+  display: flex;
+  min-height: 100vh;
+  padding: 70px 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: white;
+  flex-direction: column;
+  width: 394px;
+  justify-content: space-between;
+}
+
+.login__title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 39px 0;
+}
+
+.login__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.login__form-label {
+  color: #8b8b8b;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+}
+
+.login__form-input {
+  padding: 5px 0 10px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #8b8b8b;
+  background-color: inherit;
+  color: white;
+}
+
+.login__form-input:focus {
+  border-bottom-color: #4285f4;
+  outline: none;
+}
+
+.login__button {
+  width: 100%;
+  height: 45px;
+  padding: 0;
+  font-size: 14px;
+  border-radius: 3px;
+  font-weight: 500;
+  background: #4285f4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 221px;
+}
+
+.login__question {
+  text-align: center;
+  margin: 16px 0 0 0;
+  padding: 0;
+  color: rgba(139, 139, 139, 1);
+  font-size: 14px;
+}
+
+.login__link {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(66, 133, 244, 1);
+}
+
+.login__link:hover {
+  opacity: 0.7;
+}
+
+.login__button:hover {
+  opacity: 0.8;
+}
+
+.login__logo-image:hover {
+  opacity: 0.8;
+}
+
+.login__form-label:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    padding: 232px 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .login__form {
+    text-align: center;
+  }
+
+  .login__form-label {
+    text-align: left;
+  }
+
+  .login {
+    width: 260px;
+    padding: 56px 0 30px 0;
+  }
+
+  .login__title {
+    margin: 47px 0 80px;
+    text-align: center;
+  }
+
+  .login__button {
+    font-size: 12px;
+    margin-top: 309px;
+  }
+
+  .login__question {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,108 @@
+.header {
+  background-color: inherit;
+}
+
+.header_type_main {
+  background-color: #073042;
+}
+
+.header__logo {
+  max-height: 100%;
+}
+
+.header__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  max-height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 18px 70px;
+}
+
+.header__wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.header__buttons-wrapper {
+  display: flex;
+}
+
+.header__btn {
+  background-color: inherit;
+  border: 0;
+  padding: 8px 20px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.header__btn_populary {
+  background-color: #3ddc84;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.header__wrapper_type_auth {
+  gap: 0px;
+  max-height: 30px;
+}
+
+.header__profile {
+  display: flex;
+}
+
+.header__icon {
+  align-self: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 6px;
+  background: #313131;
+  cursor: pointer;
+}
+
+.header__link {
+  height: 38px;
+  width: 38px;
+}
+
+.header__btn:hover {
+  opacity: 0.8;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    padding: 18px 30px;
+  }
+
+  .header__btn {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header__container {
+    padding: 18px 14px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .header__btn {
+    font-size: 10px;
+  }
+
+  .header__wrapper {
+    gap: 14px;
+  }
+}

@@ -1,0 +1,136 @@
+.profile {
+  flex-grow: 1;
+  display: flex;
+}
+
+.profile__container {
+  flex-grow: 1;
+  max-width: 1280px;
+  padding: 74px 70px 70px 70px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__title {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-bottom: 108px;
+}
+
+.profile__tag {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__info {
+  max-width: 410px;
+  width: 100%;
+}
+
+.profile__info-field {
+  padding: 16px 0;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__info-field:not(:last-child) {
+  border-bottom: 1px solid #424242;
+}
+
+.profile__wrapper {
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  max-width: 410px;
+}
+
+.profile__btn {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.profile__btn_type_exit {
+  color: #ee3465;
+  font-weight: 500;
+}
+
+.profile__btn:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__container {
+    justify-content: center;
+    padding: 236px 30px;
+  }
+
+  .profile__title {
+    margin-top: 0;
+    padding-bottom: 82px;
+  }
+
+  .profile__info {
+    margin: 0 auto;
+  }
+
+  .profile__wrapper {
+    padding-top: 193px;
+    padding-bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    justify-content: space-between;
+  }
+
+  .profile__wrapper {
+    padding-top: 364px;
+    padding-bottom: 40px;
+  }
+
+  .profile__btn {
+    font-size: 12px;
+  }
+
+  .profile__info {
+    margin: 70px auto 0 auto;
+  }
+
+  .profile__title {
+    padding-bottom: 64px;
+  }
+}
