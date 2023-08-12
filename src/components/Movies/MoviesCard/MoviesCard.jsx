@@ -3,6 +3,12 @@ import markcheck from '../../../images/check-mark-black-outline.png';
 import { Link } from 'react-router-dom';
 
 function MoviesCard({ isSaved, pathname = '/movies', card }) {
+  const formatTime = (totalMinuts) => {
+    const hours = Math.floor(totalMinuts / 60);
+    const minutes = Math.floor(totalMinuts % 60);
+    return `${hours > 0 ? String(hours) + 'ч' : ''} ${String(minutes)}м`;
+  };
+
   const bntElement =
     pathname === '/saved-movies' ? (
       <button type="button" className="movies-card__button">
@@ -28,7 +34,7 @@ function MoviesCard({ isSaved, pathname = '/movies', card }) {
     <article className="movies-card">
       <div className="movies-card__info">
         <h2 className="movies-card__title">{card.nameRU}</h2>
-        <p className="movies-card__time">{card.duration}</p>
+        <p className="movies-card__time">{formatTime(card.duration)}</p>
       </div>
       <div className="movies-card__wrapper">
         <Link

@@ -11,7 +11,6 @@
 
 .movies-card__info {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 14px;
   box-sizing: border-box;
@@ -36,6 +35,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  white-space: nowrap;
 }
 
 .movies-card__image {
