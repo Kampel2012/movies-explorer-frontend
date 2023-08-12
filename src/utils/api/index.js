@@ -1,24 +1,18 @@
-import { ApiAuth } from './apiAuth';
-import { ApiMovies } from './apiMovies';
-import { ApiProfile } from './apiProfile';
+import { MainApi } from './MainApi';
+import { MoviesApi } from './MoviesApi';
 
-export const apiAuth = new ApiAuth({
+export const main = new MainApi({
   baseUrl: `https://api.movies.anton.glazunov.nomoredomains.xyz`,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-export const apiProfile = new ApiProfile({
-  baseUrl: `https://api.movies.anton.glazunov.nomoredomains.xyz`,
-});
-
-export const apiMovies = new ApiMovies({
-  baseUrl: `https://api.movies.anton.glazunov.nomoredomains.xyz`,
+export const movies = new MoviesApi({
+  baseUrl: ` https://api.nomoreparties.co/beatfilm-movies`,
 });
 
 export const api = {
-  apiAuth,
-  apiProfile,
-  apiMovies,
+  main,
+  movies,
 };

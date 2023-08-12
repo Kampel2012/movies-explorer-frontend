@@ -14,7 +14,7 @@ function Login() {
   async function onSubmit(e) {
     e.preventDefault();
     try {
-      const { jwt: token } = await api.apiAuth.signin({ email, password });
+      const { jwt: token } = await api.main.signin({ email, password });
       localStorage.setItem('TOKEN', token);
       setEmail('');
       setPassword('');

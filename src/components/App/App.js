@@ -15,9 +15,7 @@ function App() {
   useEffect(
     () => async () => {
       try {
-        const user = await api.apiAuth.checkToken(
-          localStorage.getItem('TOKEN')
-        );
+        const user = await api.main.checkToken(localStorage.getItem('TOKEN'));
         setCurrentUser(user);
         setIsAuth(true);
       } catch (error) {

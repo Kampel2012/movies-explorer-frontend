@@ -21,12 +21,12 @@ function Register() {
   async function onSubmit(e) {
     e.preventDefault();
     try {
-      await api.apiAuth.signup({ email, password, name });
+      console.log(await api.main.signup({ email, password, name }));
       setEmail('');
       setName('');
       setPassword('');
     } catch (error) {
-      console.log(error);
+      console.dir(error);
     }
   }
 
