@@ -14,7 +14,7 @@ function Register() {
 
   useEffect(() => {
     if (isAuth) {
-      navigate('/movies');
+      navigate('/');
     }
   }, [isAuth, navigate]);
 
