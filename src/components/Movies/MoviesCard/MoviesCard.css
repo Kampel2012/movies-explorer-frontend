@@ -4,7 +4,8 @@
   border-radius: 6px;
   background: #222;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-column: 1fr;
 }
 
@@ -41,6 +42,23 @@
   max-width: 100%;
   max-height: 200px;
   margin: 0 auto;
+}
+
+.movies-card__link {
+  max-width: 100%;
+  max-height: 200px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.movies-card__link:hover {
+  opacity: 0.7;
+}
+
+.movies-card__wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 .movies-card__button {

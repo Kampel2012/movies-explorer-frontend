@@ -4,26 +4,19 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
 import './MoviesCardList.css';
 
-function MoviesCardList(props) {
+function MoviesCardList({ isLoading, movies }) {
   const { pathname } = useLocation();
 
   return (
     <section className="movies-card-list">
       <div className="movies-card-list__container">
         <div className="movies-card-list__wrapper">
-          <MoviesCard isSaved={false} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
-          <MoviesCard isSaved={true} pathname={pathname} />
+          {movies.map((item) => (
+            <MoviesCard key={item.id} card={item} pathname={pathname} />
+          ))}
         </div>
         <div className="movies-card-list__load">
-          {false ? <Preloader /> : <LoadingButton />}
+          {isLoading ? <Preloader /> : <LoadingButton />}
         </div>
       </div>
     </section>

@@ -7,43 +7,8 @@ export class MoviesApi extends Api {
   }
 
   getInitialMovies() {
-    return this._request(`${this.baseUrl}/movies`, {
+    return this._request(`${this.baseUrl}`, {
       headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
-        'Content-Type': 'application/json',
-      },
-    });
-  }
-
-  addNewMovie({ name, link }) {
-    return this._request(`${this.baseUrl}/movies`, {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        link,
-      }),
-    });
-  }
-
-  deleteMovie(id) {
-    return this._request(`${this.baseUrl}/movies/${id}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
-        'Content-Type': 'application/json',
-      },
-    });
-  }
-
-  changeLikeMovieStatus(id, state) {
-    return this._request(`${this.baseUrl}/movies/${id}/likes`, {
-      method: state,
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
         'Content-Type': 'application/json',
       },
     });
