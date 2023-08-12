@@ -1,10 +1,9 @@
 import './MoviesCard.css';
 import markcheck from '../../../images/check-mark-black-outline.png';
 import { Link } from 'react-router-dom';
-import { api } from '../../../utils/api';
 import { useState } from 'react';
 
-function MoviesCard({ pathname = '/movies', card, _id }) {
+function MoviesCard({ card, _id, saveMovie, removeMovie }) {
   const formatTime = (totalMinuts) => {
     const hours = Math.floor(totalMinuts / 60);
     const minutes = Math.floor(totalMinuts % 60);
@@ -12,48 +11,44 @@ function MoviesCard({ pathname = '/movies', card, _id }) {
   };
 
   const [saved, setSaved] = useState(Boolean(_id));
-  const [currentId, setCurrentId] = useState(_id);
 
-  async function saveMovie() {
+  async function handleSaveMovie() {
     try {
-      const res = await api.main.addNewMovie(card);
-      setCurrentId(res._id);
+      await saveMovie(card);
       setSaved(true);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async function removeMovie() {
+  async function handleRemoveMovie() {
     try {
-      await api.main.deleteMovie(currentId);
+      await removeMovie(_id);
       setSaved(false);
     } catch (error) {
       console.log(error);
     }
   }
 
-  const bntElement =
-    pathname === '/saved-movies' ? (
-      <button type="button" className="movies-card__button">
-        &#215;
-      </button>
-    ) : saved ? (
-      <button
-        type="button"
-        onClick={removeMovie}
-        className="movies-card__button movies-card__button_type_saved">
-        <img
-          src={markcheck}
-          alt="Сохранено"
-          className="movies-card__image movies-card__image_type_saved"
-        />
-      </button>
-    ) : (
-      <button type="button" className="movies-card__button" onClick={saveMovie}>
-        Сохранить
-      </button>
-    );
+  const bntElement = saved ? (
+    <button
+      type="button"
+      onClick={handleRemoveMovie}
+      className="movies-card__button movies-card__button_type_saved">
+      <img
+        src={markcheck}
+        alt="Сохранено"
+        className="movies-card__image movies-card__image_type_saved"
+      />
+    </button>
+  ) : (
+    <button
+      type="button"
+      className="movies-card__button"
+      onClick={handleSaveMovie}>
+      Сохранить
+    </button>
+  );
 
   return (
     <article className="movies-card">
@@ -69,7 +64,7 @@ function MoviesCard({ pathname = '/movies', card, _id }) {
           rel="noopener noreferrer">
           <img
             src={`https://api.nomoreparties.co/${card.image.url}`}
-            alt="В погоне за Бенкси"
+            alt={card.description}
             className="movies-card__image"
           />
         </Link>

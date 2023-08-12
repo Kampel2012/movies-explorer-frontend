@@ -1,11 +1,15 @@
-import { useLocation } from 'react-router';
 import LoadingButton from '../LoadingButton/LoadingButton';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
 import './MoviesCardList.css';
 
-function MoviesCardList({ isLoading, movies, savedMovies }) {
-  const { pathname } = useLocation();
+function MoviesCardList({
+  isLoading,
+  movies,
+  savedMovies,
+  saveMovie,
+  removeMovie,
+}) {
   const checkSave = (item) =>
     savedMovies.find((mov) => mov.movieId === item.id);
 
@@ -17,8 +21,9 @@ function MoviesCardList({ isLoading, movies, savedMovies }) {
             <MoviesCard
               key={item.id}
               card={item}
-              pathname={pathname}
-              _id={checkSave(item) ? checkSave(item)._id : null}
+              _id={Boolean(checkSave(item)) ? checkSave(item)._id : null}
+              saveMovie={saveMovie}
+              removeMovie={removeMovie}
             />
           ))}
         </div>

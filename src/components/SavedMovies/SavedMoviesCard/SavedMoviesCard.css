@@ -1,0 +1,121 @@
+.saved-movies-card {
+  max-width: 100%;
+  text-align: center;
+  border-radius: 6px;
+  background: #222;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  grid-column: 1fr;
+}
+
+.saved-movies-card__info {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  box-sizing: border-box;
+  padding: 18px;
+}
+
+.saved-movies-card__title {
+  text-align: left;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.saved-movies-card__time {
+  padding: 0;
+  margin: 0;
+  color: #8b8b8b;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.saved-movies-card__image {
+  max-width: 100%;
+  max-height: 200px;
+  margin: 0 auto;
+}
+
+.saved-movies-card__link {
+  max-width: 100%;
+  max-height: 200px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.saved-movies-card__link:hover {
+  opacity: 0.7;
+}
+
+.saved-movies-card__wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.saved-movies-card__button {
+  text-align: center;
+  margin: 18px auto;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: #313131;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 11px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 29px;
+}
+
+.saved-movies-card__button:hover {
+  opacity: 0.8;
+}
+
+.saved-movies-card__button_type_saved {
+  background-color: rgba(238, 52, 101, 1);
+}
+
+.saved-movies-card__image_type_saved {
+  width: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .saved-movies-card__image {
+    max-height: 190px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .saved-movies-card__image {
+    max-height: 168px;
+  }
+
+  .saved-movies-card__info {
+    padding: 14px;
+  }
+
+  .saved-movies-card__title {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .saved-movies-card__time {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .saved-movies-card__button {
+    margin: 14px auto;
+  }
+}

@@ -1,12 +1,14 @@
+import './SavedMovies.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SearchForm from '../Movies/SearchForm/SearchForm';
-import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import { useEffect, useState } from 'react';
 import { api } from '../../utils/api';
+import SavedMoviesCardList from './SavedMoviesCardList/SavedMoviesCardList';
+import Preloader from '../Movies/Preloader/Preloader';
 
 function SavedMovies(props) {
-  const [movies, setMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(
@@ -15,7 +17,7 @@ function SavedMovies(props) {
         setIsLoading(true);
         const res = await api.main.getInitialMovies();
         console.log(res);
-        setMovies(res);
+        setSavedMovies(res);
       } catch (error) {
         console.log(error);
       } finally {
@@ -25,12 +27,30 @@ function SavedMovies(props) {
     []
   );
 
+  async function removeMovie(card) {
+    try {
+      await api.main.deleteMovie(card._id);
+      setSavedMovies((prev) => prev.filter((item) => item !== card));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <Header isAuth={true} />
       <main className="saved-movies">
         <SearchForm />
-        <MoviesCardList isLoading={isLoading} movies={movies} />
+
+        {isLoading ? (
+          <Preloader />
+        ) : (
+          <SavedMoviesCardList
+            isLoading={isLoading}
+            savedMovies={savedMovies}
+            removeMovie={removeMovie}
+          />
+        )}
       </main>
       <Footer />
     </>
