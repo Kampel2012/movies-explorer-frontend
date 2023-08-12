@@ -17,7 +17,6 @@ function Movies() {
       try {
         setIsLoading(true);
         const res = await api.movies.getInitialMovies();
-        console.log(res);
         const savedMoviesRes = await api.main.getInitialMovies();
         setMovies(res);
         setSavedMovies(savedMoviesRes);

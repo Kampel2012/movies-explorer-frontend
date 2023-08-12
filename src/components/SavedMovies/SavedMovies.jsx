@@ -7,7 +7,7 @@ import { api } from '../../utils/api';
 import SavedMoviesCardList from './SavedMoviesCardList/SavedMoviesCardList';
 import Preloader from '../Movies/Preloader/Preloader';
 
-function SavedMovies(props) {
+function SavedMovies() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,7 +16,6 @@ function SavedMovies(props) {
       try {
         setIsLoading(true);
         const res = await api.main.getInitialMovies();
-        console.log(res);
         setSavedMovies(res);
       } catch (error) {
         console.log(error);
