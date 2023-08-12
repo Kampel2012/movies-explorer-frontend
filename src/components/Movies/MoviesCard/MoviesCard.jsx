@@ -1,22 +1,47 @@
 import './MoviesCard.css';
 import markcheck from '../../../images/check-mark-black-outline.png';
 import { Link } from 'react-router-dom';
+import { api } from '../../../utils/api';
+import { useState } from 'react';
 
-function MoviesCard({ isSaved, pathname = '/movies', card }) {
+function MoviesCard({ pathname = '/movies', card, _id }) {
   const formatTime = (totalMinuts) => {
     const hours = Math.floor(totalMinuts / 60);
     const minutes = Math.floor(totalMinuts % 60);
     return `${hours > 0 ? String(hours) + 'ч' : ''} ${String(minutes)}м`;
   };
 
+  const [saved, setSaved] = useState(Boolean(_id));
+  const [currentId, setCurrentId] = useState(_id);
+
+  async function saveMovie() {
+    try {
+      const res = await api.main.addNewMovie(card);
+      setCurrentId(res._id);
+      setSaved(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function removeMovie() {
+    try {
+      await api.main.deleteMovie(currentId);
+      setSaved(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const bntElement =
     pathname === '/saved-movies' ? (
       <button type="button" className="movies-card__button">
         &#215;
       </button>
-    ) : isSaved ? (
+    ) : saved ? (
       <button
         type="button"
+        onClick={removeMovie}
         className="movies-card__button movies-card__button_type_saved">
         <img
           src={markcheck}
@@ -25,7 +50,7 @@ function MoviesCard({ isSaved, pathname = '/movies', card }) {
         />
       </button>
     ) : (
-      <button type="button" className="movies-card__button">
+      <button type="button" className="movies-card__button" onClick={saveMovie}>
         Сохранить
       </button>
     );

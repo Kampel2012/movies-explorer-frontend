@@ -8,6 +8,7 @@ import { api } from '../../utils/api';
 
 function Movies() {
   const [movies, setMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(
@@ -16,7 +17,10 @@ function Movies() {
         setIsLoading(true);
         const res = await api.movies.getInitialMovies();
         console.log(res);
+        const savedMoviesRes = await api.main.getInitialMovies();
+        console.log(savedMoviesRes);
         setMovies(res);
+        setSavedMovies(savedMoviesRes);
       } catch (error) {
         console.log(error);
       } finally {
@@ -31,7 +35,11 @@ function Movies() {
       <Header isAuth={true} />
       <main className="movies">
         <SearchForm />
-        <MoviesCardList isLoading={isLoading} movies={movies} />
+        <MoviesCardList
+          isLoading={isLoading}
+          movies={movies}
+          savedMovies={savedMovies}
+        />
       </main>
       <Footer />
     </>

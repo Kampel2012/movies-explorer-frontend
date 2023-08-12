@@ -1,7 +1,16 @@
 import Header from '../Header/Header';
 import './Profile.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 function Profile({ name = 'Виталий', email = 'pochta@yandex.ru' }) {
+  const { setIsAuth } = useContext(AuthContext);
+
+  function exit() {
+    localStorage.removeItem('TOKEN');
+    setIsAuth(false);
+  }
+
   return (
     <>
       <Header isAuth={true} />
@@ -24,6 +33,7 @@ function Profile({ name = 'Виталий', email = 'pochta@yandex.ru' }) {
             </button>
             <button
               type="button"
+              onClick={exit}
               className="profile__btn profile__btn_type_exit">
               Выйти из аккаунта
             </button>

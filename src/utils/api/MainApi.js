@@ -81,17 +81,24 @@ export class MainApi extends Api {
     });
   }
 
-  addNewMovie({ name, link }) {
+  addNewMovie(card) {
+    const movie = {
+      ...Object.fromEntries(
+        Object.entries(card).filter(
+          (n) => n[0] !== 'id' && n[0] !== 'created_at' && n[0] !== 'updated_at'
+        )
+      ),
+      image: `https://api.nomoreparties.co/${card.image.url}`,
+      thumbnail: `https://api.nomoreparties.co/${card.image.formats.thumbnail.url}`,
+      movieId: card.id,
+    };
     return this._request(`${this.baseUrl}/movies`, {
       method: 'POST',
       headers: {
         authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name,
-        link,
-      }),
+      body: JSON.stringify(movie),
     });
   }
 
