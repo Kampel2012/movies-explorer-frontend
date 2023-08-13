@@ -8,13 +8,17 @@ import { api } from '../../utils/api';
 import Preloader from './Preloader/Preloader';
 
 function Movies() {
-  const [movies, setMovies] = useState([]);
-  const [savedMovies, setSavedMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [filter, setFilter] = useState({
+  const initialMovies = JSON.parse(localStorage.getItem('foundMovies')) || [];
+  const initialFilter = JSON.parse(localStorage.getItem('filter')) || {
     partOfName: '',
     isShort: false,
-  });
+  };
+  const [movies, setMovies] = useState(initialMovies);
+
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [filter, setFilter] = useState(initialFilter);
 
   async function getMovies(filter) {
     if (filter.partOfName === '') {
@@ -40,6 +44,11 @@ function Movies() {
   async function handleOnSubmit(filter) {
     await getMovies(filter);
     setFilter(filter);
+    localStorage.setItem(
+      'foundMovies',
+      JSON.stringify(filterFilms({ ...filter, isShort: false }))
+    );
+    localStorage.setItem('filter', JSON.stringify(filter));
   }
 
   async function saveMovie(card) {
@@ -60,11 +69,11 @@ function Movies() {
     }
   }
 
-  function filterFilms() {
-    const lowerPartOfName = filter.partOfName.toLowerCase();
+  function filterFilms(filter) {
+    const lowerPartOfName = filter?.partOfName.toLowerCase();
     const isIncludes = (item) => item.toLowerCase().includes(lowerPartOfName);
 
-    if (filter.isShort) {
+    if (filter?.isShort) {
       const res = movies.filter((movie) => movie.duration <= 40);
       return res.filter(
         (movie) => isIncludes(movie.nameRU) || isIncludes(movie.nameEN)
@@ -85,7 +94,7 @@ function Movies() {
         ) : (
           <MoviesCardList
             isLoading={isLoading}
-            movies={filterFilms()}
+            movies={filterFilms(filter)}
             savedMovies={savedMovies}
             saveMovie={saveMovie}
             removeMovie={removeMovie}

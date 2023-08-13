@@ -7,6 +7,8 @@ function Profile({ name = 'Виталий', email = 'pochta@yandex.ru' }) {
   const { setIsAuth } = useContext(AuthContext);
 
   function exit() {
+    localStorage.removeItem('foundMovies');
+    localStorage.removeItem('filter');
     localStorage.removeItem('TOKEN');
     setIsAuth(false);
   }
