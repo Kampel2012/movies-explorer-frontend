@@ -23,6 +23,12 @@ function Login() {
     maxLength: 30,
   });
 
+  useEffect(() => {
+    if (isAuth) {
+      navigate('/');
+    }
+  }, [isAuth, navigate]);
+
   async function onSubmit(e) {
     e.preventDefault();
     try {
@@ -31,20 +37,22 @@ function Login() {
         password: password.value,
       });
       localStorage.setItem('TOKEN', token);
-      email.clear();
-      password.clear();
-      setError('');
       setIsAuth(true);
     } catch (error) {
-      setError('Что-то пошло не так...');
+      if (error === 'Ошибка: 401') {
+        setError('Неверный логин или пароль');
+      } else {
+        setError('Что-то пошло не так...');
+      }
     }
   }
 
-  useEffect(() => {
-    if (isAuth) {
-      navigate('/');
+  function handleChange(e, cb) {
+    if (error !== '') {
+      setError('');
     }
-  }, [isAuth, navigate]);
+    cb(e);
+  }
 
   return (
     <main className="login">
@@ -64,7 +72,7 @@ function Login() {
               autoComplete="off"
               placeholder="pochta@yandex.ru"
               value={email.value}
-              onChange={(e) => email.onChange(e)}
+              onChange={(e) => handleChange(e, email.onChange)}
               onBlur={(e) => email.onBlur(e)}
             />
             {email.isDirty && !email.inputValid && (
@@ -87,7 +95,7 @@ function Login() {
               autoComplete="off"
               placeholder="••••••••"
               value={password.value}
-              onChange={(e) => password.onChange(e)}
+              onChange={(e) => handleChange(e, password.onChange)}
               onBlur={(e) => password.onBlur(e)}
             />
             {password.isDirty && !password.inputValid && (

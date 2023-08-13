@@ -10,6 +10,7 @@ function Profile() {
   const { setIsAuth } = useContext(AuthContext);
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const name = useInput(currentUser.name, {
     isEmpty: true,
@@ -41,9 +42,25 @@ function Profile() {
       });
       setCurrentUser(updateUser);
       setError('');
+      setSuccess('Данные были обновлены!');
     } catch (error) {
-      setError('Что-то пошло не так...');
+      setSuccess('');
+      if (error === 'Ошибка: 409') {
+        setError('Пользователь с таким E-mail уже существует.');
+      } else {
+        setError('Что-то пошло не так...');
+      }
     }
+  }
+
+  function handleChange(e, cb) {
+    if (success !== '') {
+      setSuccess('');
+    }
+    if (error !== '') {
+      setError('');
+    }
+    cb(e);
   }
 
   return (
@@ -61,7 +78,9 @@ function Profile() {
                 className="profile__input"
                 type="text"
                 value={name.value}
-                onChange={(e) => name.onChange(e)}
+                onChange={(e) => {
+                  handleChange(e, name.onChange);
+                }}
                 onBlur={(e) => name.onBlur(e)}
                 placeholder="Имя"
               />
@@ -80,7 +99,9 @@ function Profile() {
                 className="profile__input"
                 type="email"
                 value={email.value}
-                onChange={(e) => email.onChange(e)}
+                onChange={(e) => {
+                  handleChange(e, email.onChange);
+                }}
                 onBlur={(e) => email.onBlur(e)}
                 placeholder="E-mail"
               />
@@ -100,10 +121,16 @@ function Profile() {
                 {error}
               </span>
             )}
+            {success && <span className="profile__success">{success}</span>}
             <button
               type="sumbit"
               className="profile__btn"
-              disabled={!name.inputValid || !email.inputValid}>
+              disabled={
+                !name.inputValid ||
+                !email.inputValid ||
+                (currentUser.email === email.value &&
+                  currentUser.name === name.value)
+              }>
               Редактировать
             </button>
             <button

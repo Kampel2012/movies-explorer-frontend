@@ -24,7 +24,11 @@ const MenuPopup = ({ isOpen, onClose }) => {
         className={`menu-popup__content ${
           isOpen ? 'menu-popup__content_active' : ''
         }`}>
-        <button className="menu-popup__close-btn" onClick={onClose}></button>
+        <button
+          className="menu-popup__close-btn"
+          onClick={onClose}
+          title="close"
+        />
         <ul className="menu-popup__links">
           {links.map((link, index) => (
             <li key={index}>

@@ -52,17 +52,6 @@
   text-align: right;
 }
 
-.profile__error {
-  width: 100%;
-  color: #ee3465;
-  text-align: right;
-  font-family: Inter;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
 .profile__info {
   max-width: 410px;
   width: 100%;
@@ -112,9 +101,30 @@
   /*   cursor: not-allowed; */
 }
 
+.profile__error {
+  width: 100%;
+  color: #ee3465;
+  text-align: right;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .profile__error_type_bottom {
   text-align: center;
   font-size: 12px;
+}
+
+.profile__success {
+  width: 100%;
+  color: #38853c;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
 }
 
 .profile__btn_type_exit {

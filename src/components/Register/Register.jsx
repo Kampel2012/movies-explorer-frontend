@@ -7,7 +7,7 @@ import { api } from '../../utils/api';
 import useInput from '../hooks/useInput';
 
 function Register() {
-  const { isAuth } = useContext(AuthContext);
+  const { isAuth, setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState('');
 
@@ -45,12 +45,26 @@ function Register() {
         password: password.value,
         name: name.value,
       });
-      email.clear();
-      name.clear();
-      password.clear();
+      const { jwt: token } = await api.main.signin({
+        email: email.value,
+        password: password.value,
+      });
+      localStorage.setItem('TOKEN', token);
+      setIsAuth(true);
     } catch (error) {
-      setError('Что-то пошло не так...');
+      if (error === 'Ошибка: 409') {
+        setError('Пользователь с таким E-mail уже существует.');
+      } else {
+        setError('Что-то пошло не так...');
+      }
     }
+  }
+
+  function handleChange(e, cb) {
+    if (error !== '') {
+      setError('');
+    }
+    cb(e);
   }
 
   return (
@@ -72,7 +86,7 @@ function Register() {
               placeholder="Виталий"
               value={name.value}
               onBlur={(e) => name.onBlur(e)}
-              onChange={(e) => name.onChange(e)}
+              onChange={(e) => handleChange(e, name.onChange)}
             />
             {name.isDirty && !name.inputValid && (
               <span className="login__error">
@@ -95,7 +109,7 @@ function Register() {
               placeholder="pochta@yandex.ru"
               value={email.value}
               onBlur={(e) => email.onBlur(e)}
-              onChange={(e) => email.onChange(e)}
+              onChange={(e) => handleChange(e, email.onChange)}
             />
             {email.isDirty && !email.inputValid && (
               <span className="login__error">
@@ -118,7 +132,7 @@ function Register() {
               placeholder="••••••••"
               value={password.value}
               onBlur={(e) => password.onBlur(e)}
-              onChange={(e) => password.onChange(e)}
+              onChange={(e) => handleChange(e, password.onChange)}
             />
             {password.isDirty && !password.inputValid && (
               <span className="login__error">
