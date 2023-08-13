@@ -4,23 +4,39 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { api } from '../../utils/api';
+import useInput from '../hooks/useInput';
 
 function Login() {
+  const [error, setError] = useState('');
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const email = useInput('', {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 30,
+    isEmail: true,
+  });
+
+  const password = useInput('', {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 30,
+  });
 
   async function onSubmit(e) {
     e.preventDefault();
     try {
-      const { jwt: token } = await api.main.signin({ email, password });
+      const { jwt: token } = await api.main.signin({
+        email: email.value,
+        password: password.value,
+      });
       localStorage.setItem('TOKEN', token);
-      setEmail('');
-      setPassword('');
+      email.clear();
+      password.clear();
+      setError('');
       setIsAuth(true);
     } catch (error) {
-      console.log(error);
+      setError('Что-то пошло не так...');
     }
   }
 
@@ -46,13 +62,19 @@ function Login() {
               type="email"
               name="email"
               autoComplete="off"
-              minLength={2}
-              maxLength={30}
-              required={true}
               placeholder="pochta@yandex.ru"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={email.value}
+              onChange={(e) => email.onChange(e)}
+              onBlur={(e) => email.onBlur(e)}
             />
+            {email.isDirty && !email.inputValid && (
+              <span className="login__error">
+                {email.EmptyError ||
+                  email.minLengthError ||
+                  email.maxLengthError ||
+                  email.emailError}
+              </span>
+            )}
           </label>
 
           <label className="login__form-label" htmlFor="password">
@@ -63,17 +85,30 @@ function Login() {
               name="password"
               id="password"
               autoComplete="off"
-              minLength={2}
-              maxLength={30}
-              required={true}
               placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={password.value}
+              onChange={(e) => password.onChange(e)}
+              onBlur={(e) => password.onBlur(e)}
             />
+            {password.isDirty && !password.inputValid && (
+              <span className="login__error">
+                {password.EmptyError ||
+                  password.minLengthError ||
+                  password.maxLengthError}
+              </span>
+            )}
           </label>
         </div>
-        <div className="login__wrapper">
-          <button type="submit" className="login__button">
+        <div className="login__wrapper login__wrapper_type_bottom ">
+          {error && (
+            <span className="login__error login__error_type_bottom">
+              {error}
+            </span>
+          )}
+          <button
+            type="submit"
+            className="login__button"
+            disabled={!email.inputValid || !password.inputValid}>
             Войти
           </button>
           <p className="login__question">

@@ -14,15 +14,17 @@ function App() {
 
   useEffect(
     () => async () => {
+      const token = localStorage.getItem('TOKEN');
+      if (!token) return;
       try {
-        const user = await api.main.checkToken(localStorage.getItem('TOKEN'));
+        const user = await api.main.checkToken(token);
         setCurrentUser(user);
         setIsAuth(true);
       } catch (error) {
         setIsAuth(false);
       }
     },
-    []
+    [isAuth]
   );
 
   return (

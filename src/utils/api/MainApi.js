@@ -45,7 +45,7 @@ export class MainApi extends Api {
     });
   }
 
-  editProfile({ name, about }) {
+  editProfile({ name, email }) {
     return this._request(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -54,7 +54,7 @@ export class MainApi extends Api {
       },
       body: JSON.stringify({
         name,
-        about,
+        email,
       }),
     });
   }

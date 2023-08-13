@@ -38,6 +38,31 @@
   line-height: normal;
 }
 
+.profile__input {
+  color: #fff;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  flex-grow: 1;
+  margin-left: 30px;
+  background-color: inherit;
+  border: none;
+  text-align: right;
+}
+
+.profile__error {
+  width: 100%;
+  color: #ee3465;
+  text-align: right;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .profile__info {
   max-width: 410px;
   width: 100%;
@@ -48,7 +73,9 @@
   width: 100%;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  border: none;
 }
 
 .profile__info-field:not(:last-child) {
@@ -78,6 +105,16 @@
   margin: 0;
   background-color: inherit;
   cursor: pointer;
+}
+
+.profile__btn:disabled {
+  opacity: 0.7;
+  /*   cursor: not-allowed; */
+}
+
+.profile__error_type_bottom {
+  text-align: center;
+  font-size: 12px;
 }
 
 .profile__btn_type_exit {

@@ -4,13 +4,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import { api } from '../../utils/api';
+import useInput from '../hooks/useInput';
 
 function Register() {
   const { isAuth } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const email = useInput('', {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 30,
+    isEmail: true,
+  });
+
+  const name = useInput('', {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 30,
+    isName: true,
+  });
+
+  const password = useInput('', {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 30,
+  });
 
   useEffect(() => {
     if (isAuth) {
@@ -21,12 +40,16 @@ function Register() {
   async function onSubmit(e) {
     e.preventDefault();
     try {
-      console.log(await api.main.signup({ email, password, name }));
-      setEmail('');
-      setName('');
-      setPassword('');
+      await api.main.signup({
+        email: email.value,
+        password: password.value,
+        name: name.value,
+      });
+      email.clear();
+      name.clear();
+      password.clear();
     } catch (error) {
-      console.dir(error);
+      setError('Что-то пошло не так...');
     }
   }
 
@@ -46,13 +69,19 @@ function Register() {
               type="name"
               name="name"
               autoComplete="off"
-              minLength={2}
-              maxLength={30}
-              required={true}
               placeholder="Виталий"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={name.value}
+              onBlur={(e) => name.onBlur(e)}
+              onChange={(e) => name.onChange(e)}
             />
+            {name.isDirty && !name.inputValid && (
+              <span className="login__error">
+                {name.EmptyError ||
+                  name.minLengthError ||
+                  name.maxLengthError ||
+                  name.nameError}
+              </span>
+            )}
           </label>
 
           <label className="register__form-label" htmlFor="email">
@@ -63,13 +92,19 @@ function Register() {
               type="email"
               name="email"
               autoComplete="off"
-              minLength={2}
-              maxLength={30}
-              required={true}
               placeholder="pochta@yandex.ru"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={email.value}
+              onBlur={(e) => email.onBlur(e)}
+              onChange={(e) => email.onChange(e)}
             />
+            {email.isDirty && !email.inputValid && (
+              <span className="login__error">
+                {email.EmptyError ||
+                  email.minLengthError ||
+                  email.maxLengthError ||
+                  email.emailError}
+              </span>
+            )}
           </label>
 
           <label className="register__form-label" htmlFor="password">
@@ -80,17 +115,32 @@ function Register() {
               name="password"
               id="password"
               autoComplete="off"
-              minLength={2}
-              maxLength={30}
-              required={true}
               placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={password.value}
+              onBlur={(e) => password.onBlur(e)}
+              onChange={(e) => password.onChange(e)}
             />
+            {password.isDirty && !password.inputValid && (
+              <span className="login__error">
+                {password.EmptyError ||
+                  password.minLengthError ||
+                  password.maxLengthError}
+              </span>
+            )}
           </label>
         </div>
-        <div className="register__wrapper">
-          <button type="submit" className="register__button">
+        <div className="register__wrapper register__wrapper_type_bottom">
+          {error && (
+            <span className="register__error register__error_type_bottom">
+              {error}
+            </span>
+          )}
+          <button
+            disabled={
+              !email.inputValid || !password.inputValid || !name.inputValid
+            }
+            type="submit"
+            className="register__button">
             Зарегистрироваться
           </button>
           <p className="register__question">

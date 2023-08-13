@@ -61,6 +61,9 @@
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.login__wrapper_type_bottom {
   margin-top: 221px;
 }
 
@@ -86,12 +89,29 @@
   opacity: 0.8;
 }
 
+.login__button:disabled {
+  opacity: 0.7;
+}
+
 .login__logo-image:hover {
   opacity: 0.8;
 }
 
 .login__form-label:not(:last-child) {
   margin-bottom: 25px;
+}
+
+.login__error {
+  color: #ee3465;
+  margin-top: 5px;
+}
+
+.login__error_type_bottom {
+  margin: 0 auto 5px auto;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -119,9 +139,12 @@
     text-align: center;
   }
 
+  .login__wrapper_type_bottom {
+    margin-top: 309px;
+  }
+
   .login__button {
     font-size: 12px;
-    margin-top: 309px;
   }
 
   .login__question {
