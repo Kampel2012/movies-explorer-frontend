@@ -14,7 +14,7 @@ function MoviesCardList({
 }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [displayedCards, setDisplayedCards] = useState(0);
-  const [multiplay, setMultiplay] = useState(1);
+  const [multiplay, setMultiplay] = useState(4);
 
   const handleResizeDeb = useDebounce(() => {
     setWindowWidth(window.innerWidth);
@@ -29,11 +29,19 @@ function MoviesCardList({
 
   useEffect(() => {
     const initialCardCount = getCount(windowWidth);
-    setDisplayedCards(initialCardCount * multiplay);
+    if (windowWidth < 550) {
+      setDisplayedCards(1 + initialCardCount * multiplay);
+    } else {
+      setDisplayedCards(initialCardCount * multiplay);
+    }
   }, [multiplay, windowWidth]);
 
   function handleOnClick() {
-    setMultiplay((prev) => prev + 1);
+    if (windowWidth < 550) {
+      setMultiplay((prev) => prev + 2);
+    } else {
+      setMultiplay((prev) => prev + 1);
+    }
   }
 
   const checkSave = (item) =>
@@ -41,17 +49,14 @@ function MoviesCardList({
 
   function getCount(windowWidth) {
     let initialCardCount;
-    if (windowWidth >= 1280) {
-      initialCardCount = 3;
-    }
-    if (windowWidth < 1280 && windowWidth >= 768) {
+    if (windowWidth >= 768) {
       initialCardCount = 3;
     }
     if (windowWidth < 768 && windowWidth >= 550) {
-      initialCardCount = 4;
+      initialCardCount = 2;
     }
     if (windowWidth < 550) {
-      initialCardCount = 5;
+      initialCardCount = 1;
     }
     return initialCardCount;
   }
@@ -74,7 +79,7 @@ function MoviesCardList({
           {isLoading ? (
             <Preloader />
           ) : (
-            displayedCards <= movies.length && (
+            displayedCards < movies.length && (
               <LoadingButton handleOnClick={handleOnClick} />
             )
           )}

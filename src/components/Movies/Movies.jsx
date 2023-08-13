@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Movies.css';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -11,23 +11,36 @@ function Movies() {
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter] = useState({
+    partOfName: '',
+    isShort: false,
+  });
 
-  useEffect(
-    () => async () => {
-      try {
-        setIsLoading(true);
-        const res = await api.movies.getInitialMovies();
-        const savedMoviesRes = await api.main.getInitialMovies();
-        setMovies(res);
-        setSavedMovies(savedMoviesRes);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    []
-  );
+  async function getMovies(filter) {
+    if (filter.partOfName === '') {
+      setMovies([]);
+      return;
+    }
+
+    if (movies.length > 0) return;
+
+    try {
+      setIsLoading(true);
+      const res = await api.movies.getInitialMovies();
+      const savedMoviesRes = await api.main.getInitialMovies();
+      setMovies(res);
+      setSavedMovies(savedMoviesRes);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function handleOnSubmit(filter) {
+    await getMovies(filter);
+    setFilter(filter);
+  }
 
   async function saveMovie(card) {
     try {
@@ -46,11 +59,6 @@ function Movies() {
       console.log(error);
     }
   }
-
-  const [filter, setFilter] = useState({
-    partOfName: '',
-    isShort: false,
-  });
 
   function filterFilms() {
     const lowerPartOfName = filter.partOfName.toLowerCase();
@@ -71,7 +79,7 @@ function Movies() {
     <>
       <Header isAuth={true} />
       <main className="movies">
-        <SearchForm filter={filter} handleSubmitSearch={setFilter} />
+        <SearchForm filter={filter} handleSubmitSearch={handleOnSubmit} />
         {isLoading ? (
           <Preloader />
         ) : (

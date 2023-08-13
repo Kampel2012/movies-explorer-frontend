@@ -15,15 +15,14 @@ function SearchForm({ filter, handleSubmitSearch }) {
   }
 
   useEffect(() => {
-    handleSubmitSearch((prev) => {
-      return { ...prev, isShort: shortFilmsFilter };
-    });
-  }, [handleSubmitSearch, shortFilmsFilter]);
+    handleSubmitSearch({ partOfName: seachValue, isShort: shortFilmsFilter });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shortFilmsFilter]);
 
   return (
     <section className="search-form">
       <div className="search-form__container">
-        <form className="search-form__form" onSubmit={handleOnSubmit}>
+        <form className="search-form__form" onSubmit={(e) => handleOnSubmit(e)}>
           <fieldset className="search-form__field-text">
             <input
               type="text"

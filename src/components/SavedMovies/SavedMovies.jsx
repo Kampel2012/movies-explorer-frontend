@@ -35,18 +35,38 @@ function SavedMovies() {
     }
   }
 
+  const [filter, setFilter] = useState({
+    partOfName: '',
+    isShort: false,
+  });
+
+  function filterFilms() {
+    const lowerPartOfName = filter.partOfName.toLowerCase();
+    const isIncludes = (item) => item.toLowerCase().includes(lowerPartOfName);
+
+    if (filter.isShort) {
+      const res = savedMovies.filter((movie) => movie.duration <= 40);
+      return res.filter(
+        (movie) => isIncludes(movie.nameRU) || isIncludes(movie.nameEN)
+      );
+    }
+    return savedMovies.filter(
+      (movie) => isIncludes(movie.nameRU) || isIncludes(movie.nameEN)
+    );
+  }
+
   return (
     <>
       <Header isAuth={true} />
       <main className="saved-movies">
-        <SearchForm />
+        <SearchForm filter={filter} handleSubmitSearch={setFilter} />
 
         {isLoading ? (
           <Preloader />
         ) : (
           <SavedMoviesCardList
             isLoading={isLoading}
-            savedMovies={savedMovies}
+            savedMovies={filterFilms()}
             removeMovie={removeMovie}
           />
         )}
