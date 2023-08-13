@@ -151,7 +151,10 @@ function Register() {
           )}
           <button
             disabled={
-              !email.inputValid || !password.inputValid || !name.inputValid
+              !email.inputValid ||
+              !password.inputValid ||
+              !name.inputValid ||
+              error
             }
             type="submit"
             className="register__button">

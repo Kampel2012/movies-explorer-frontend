@@ -116,7 +116,7 @@ function Login() {
           <button
             type="submit"
             className="login__button"
-            disabled={!email.inputValid || !password.inputValid}>
+            disabled={!email.inputValid || !password.inputValid || error}>
             Войти
           </button>
           <p className="login__question">
