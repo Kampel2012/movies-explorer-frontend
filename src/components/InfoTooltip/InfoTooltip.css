@@ -1,4 +1,4 @@
-.popup {
+.info-popup__popup {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -16,12 +16,12 @@
   transition: visibility 0.3s ease, opacity 0.8s ease;
 }
 
-.popup_opened {
+.info-popup__popup_opened {
   visibility: visible;
   opacity: 1;
 }
 
-.icon {
+.info-popup__icon {
   height: 120px;
   width: 120px;
   background-repeat: no-repeat;
@@ -30,15 +30,15 @@
   margin-top: 60px;
 }
 
-.icon__success {
+.info-popup__icon_type_success {
   background-image: url('../../images/Unionsuccess.svg');
 }
 
-.icon__error {
+.info-popup__icon_type_error {
   background-image: url('../../images/UnionError.svg');
 }
 
-.container {
+.info-popup__container {
   position: relative;
   width: 430px;
   background-color: #1b1b1d;
@@ -50,12 +50,12 @@
 }
 
 @media screen and (max-width: 680px) {
-  .container {
+  .info-popup__container {
     width: 282px;
   }
 }
 
-.title {
+.info-popup__title {
   margin: 32px 36px 60px 36px;
   text-align: start;
   font-weight: 900;
@@ -65,7 +65,7 @@
 }
 
 @media screen and (max-width: 680px) {
-  .title {
+  .info-popup__title {
     font-size: 18px;
     line-height: 22px;
     text-align: center;
@@ -73,7 +73,7 @@
   }
 }
 
-.close__btn {
+.info-popup__close-btn {
   background-color: #000;
   color: white;
   text-align: center;
@@ -90,13 +90,13 @@
   padding: 0;
 }
 
-.close__btn:hover {
+.info-popup__close-btn:hover {
   cursor: pointer;
   opacity: 0.6;
 }
 
 @media screen and (max-width: 680px) {
-  .close__btn {
+  .info-popup__close-btn {
     background-size: 20px 20px;
     top: -36px;
     right: 0;

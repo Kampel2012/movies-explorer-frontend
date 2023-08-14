@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
-import styles from '../InfoTooltip/InfoTooltip.module.css';
 
 export default function usePopupClose(isOpen, closePopup) {
   useEffect(() => {
     if (!isOpen) return;
 
     const handleOverlay = (event) => {
-      if (
-        event.target.classList.contains('pop-up_opened') ||
-        event.target.classList.contains(styles.popup_opened)
-      ) {
+      if (event.target.classList.contains('info-popup__popup_opened')) {
         closePopup();
       }
     };
