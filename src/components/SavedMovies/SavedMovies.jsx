@@ -6,10 +6,18 @@ import { useEffect, useState } from 'react';
 import { api } from '../../utils/api';
 import SavedMoviesCardList from './SavedMoviesCardList/SavedMoviesCardList';
 import Preloader from '../Movies/Preloader/Preloader';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 function SavedMovies() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isShowPopup, setIsShowPopup] = useState(false);
+  const [errorPopup, setErrorPopup] = useState('');
+  const [filter, setFilter] = useState({
+    partOfName: '',
+    isShort: false,
+  });
+  const isEmptyQuestion = filter.partOfName === '';
 
   useEffect(
     () => async () => {
@@ -18,7 +26,9 @@ function SavedMovies() {
         const res = await api.main.getInitialMovies();
         setSavedMovies(res);
       } catch (error) {
-        console.log(error);
+        setErrorPopup(
+          'Произошла ошибка при загрузке сохранённых фильмов. Попробуйте еще раз позднее.'
+        );
       } finally {
         setIsLoading(false);
       }
@@ -31,14 +41,11 @@ function SavedMovies() {
       await api.main.deleteMovie(card._id);
       setSavedMovies((prev) => prev.filter((item) => item !== card));
     } catch (error) {
-      console.log(error);
+      setErrorPopup(
+        'Произошла ошибка при удалении фильма. Попробуйте еще раз позднее.'
+      );
     }
   }
-
-  const [filter, setFilter] = useState({
-    partOfName: '',
-    isShort: false,
-  });
 
   function filterFilms() {
     const lowerPartOfName = filter.partOfName.toLowerCase();
@@ -68,10 +75,16 @@ function SavedMovies() {
             isLoading={isLoading}
             savedMovies={filterFilms()}
             removeMovie={removeMovie}
+            isEmptyQuestion={isEmptyQuestion}
           />
         )}
       </main>
       <Footer />
+      <InfoTooltip
+        isOpen={isShowPopup}
+        onClose={setIsShowPopup}
+        infoTooltipMessage={{ error: errorPopup }}
+      />
     </>
   );
 }

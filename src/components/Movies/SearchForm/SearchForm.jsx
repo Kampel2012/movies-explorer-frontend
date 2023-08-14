@@ -15,8 +15,10 @@ function SearchForm({ filter, handleSubmitSearch }) {
   }
 
   useEffect(() => {
-    handleSubmitSearch({ partOfName: seachValue, isShort: shortFilmsFilter });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    handleSubmitSearch({
+      partOfName: filter.partOfName,
+      isShort: shortFilmsFilter,
+    });
   }, [shortFilmsFilter]);
 
   return (

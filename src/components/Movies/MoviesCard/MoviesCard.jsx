@@ -9,25 +9,16 @@ function MoviesCard({ card, _id, saveMovie, removeMovie }) {
     const minutes = Math.floor(totalMinuts % 60);
     return `${hours > 0 ? String(hours) + 'ч' : ''} ${String(minutes)}м`;
   };
-
   const [saved, setSaved] = useState(Boolean(_id));
 
   async function handleSaveMovie() {
-    try {
-      await saveMovie(card);
-      setSaved(true);
-    } catch (error) {
-      console.log(error);
-    }
+    const res = await saveMovie(card);
+    if (res) setSaved(true);
   }
 
   async function handleRemoveMovie() {
-    try {
-      await removeMovie(_id);
-      setSaved(false);
-    } catch (error) {
-      console.log(error);
-    }
+    const res = await removeMovie(_id);
+    if (res) setSaved(false);
   }
 
   const bntElement = saved ? (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Movies.css';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -6,6 +6,7 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import SearchForm from './SearchForm/SearchForm';
 import { api } from '../../utils/api';
 import Preloader from './Preloader/Preloader';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 function Movies() {
   const initialMovies = JSON.parse(localStorage.getItem('foundMovies')) || [];
@@ -14,18 +15,33 @@ function Movies() {
     isShort: false,
   };
   const [movies, setMovies] = useState(initialMovies);
-
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const [filter, setFilter] = useState(initialFilter);
+  const [isShowPopup, setIsShowPopup] = useState(false);
+  const [errorPopup, setErrorPopup] = useState('');
+  const isEmptyQuestion = filter.partOfName === '';
+
+  useEffect(() => {
+    const getSavedMovies = async () => {
+      try {
+        setIsLoading(true);
+        const savedMoviesRes = await api.main.getInitialMovies();
+        setSavedMovies(savedMoviesRes);
+      } catch (error) {
+        setIsShowPopup(true);
+        setErrorPopup(
+          'Произошла ошибка при загрузке сохранённых фильмов. Попробуйте еще раз позднее.'
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getSavedMovies();
+  }, []);
 
   async function getMovies(filter) {
-    if (filter.partOfName === '') {
-      setMovies([]);
-      return;
-    }
-
+    if (filter.partOfName === '') return;
     if (movies.length > 0) return;
 
     try {
@@ -35,7 +51,10 @@ function Movies() {
       setMovies(res);
       setSavedMovies(savedMoviesRes);
     } catch (error) {
-      console.log(error);
+      setErrorPopup(
+        'Произошла ошибка при загрузке фильмов. Попробуйте еще раз позднее.'
+      );
+      setIsShowPopup(true);
     } finally {
       setIsLoading(false);
     }
@@ -55,17 +74,25 @@ function Movies() {
     try {
       const res = await api.main.addNewMovie(card);
       setSavedMovies((prev) => [...prev, res]);
+      return res;
     } catch (error) {
-      console.log(error);
+      setErrorPopup(
+        'Произошла ошибка при сохранении фильма. Попробуйте еще раз позднее.'
+      );
+      setIsShowPopup(true);
     }
   }
 
   async function removeMovie(_id) {
     try {
-      await api.main.deleteMovie(_id);
+      const res = await api.main.deleteMovie(_id);
       setSavedMovies((prev) => prev.filter((item) => item._id !== _id));
+      return res;
     } catch (error) {
-      console.log(error);
+      setIsShowPopup(true);
+      setErrorPopup(
+        'Произошла ошибка при удалении фильма. Попробуйте еще раз позднее.'
+      );
     }
   }
 
@@ -98,10 +125,16 @@ function Movies() {
             savedMovies={savedMovies}
             saveMovie={saveMovie}
             removeMovie={removeMovie}
+            isEmptyQuestion={isEmptyQuestion}
           />
         )}
       </main>
       <Footer />
+      <InfoTooltip
+        isOpen={isShowPopup}
+        onClose={setIsShowPopup}
+        infoTooltipMessage={{ error: errorPopup }}
+      />
     </>
   );
 }

@@ -11,6 +11,7 @@ function MoviesCardList({
   savedMovies,
   saveMovie,
   removeMovie,
+  isEmptyQuestion,
 }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [displayedCards, setDisplayedCards] = useState(0);
@@ -64,6 +65,11 @@ function MoviesCardList({
   return (
     <section className="movies-card-list">
       <div className="movies-card-list__container">
+        {!isEmptyQuestion && movies.length === 0 && (
+          <p className="movies-card-list__message">
+            По данному запросу ничего не найдено
+          </p>
+        )}
         <div className="movies-card-list__wrapper">
           {movies.slice(0, displayedCards).map((item) => (
             <MoviesCard
