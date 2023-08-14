@@ -25,7 +25,7 @@ function App() {
       }
     };
     checkToken();
-  }, []);
+  }, [isAuth]);
 
   return (
     <AuthContext.Provider value={{ isAuth, setIsAuth }}>

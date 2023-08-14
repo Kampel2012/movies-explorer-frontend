@@ -12,14 +12,14 @@ function Profile() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const name = useInput(currentUser.name, {
+  const name = useInput(currentUser?.name, {
     isEmpty: true,
     minLength: 2,
     maxLength: 30,
     isName: true,
   });
 
-  const email = useInput(currentUser.email, {
+  const email = useInput(currentUser?.email, {
     isEmpty: true,
     minLength: 2,
     maxLength: 30,
@@ -69,9 +69,7 @@ function Profile() {
       <main className="profile">
         <form className="profile__container" onSubmit={handleSubmit}>
           <div className="profile__info">
-            <h1
-              onClick={() => console.log(name, email)}
-              className="profile__title">{`Привет, ${currentUser.name}!`}</h1>
+            <h1 className="profile__title">{`Привет, ${currentUser?.name}!`}</h1>
             <fieldset className="profile__info-field">
               <span className="profile__tag">Имя</span>
               <input
@@ -128,8 +126,8 @@ function Profile() {
               disabled={
                 !name.inputValid ||
                 !email.inputValid ||
-                (currentUser.email === email.value &&
-                  currentUser.name === name.value)
+                (currentUser?.email === email.value &&
+                  currentUser?.name === name.value)
               }>
               Редактировать
             </button>
