@@ -12,8 +12,8 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    const checkToken = async () => {
       const token = localStorage.getItem('TOKEN');
       if (!token) return;
       try {
@@ -23,9 +23,9 @@ function App() {
       } catch (error) {
         setIsAuth(false);
       }
-    },
-    [isAuth]
-  );
+    };
+    checkToken();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ isAuth, setIsAuth }}>
