@@ -19,22 +19,23 @@ function SavedMovies() {
   });
   const isEmptyQuestion = filter.partOfName === '';
 
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    const getSavedMovies = async () => {
       try {
         setIsLoading(true);
-        const res = await api.main.getInitialMovies();
-        setSavedMovies(res);
+        const savedMoviesRes = await api.main.getInitialMovies();
+        setSavedMovies(savedMoviesRes);
       } catch (error) {
+        setIsShowPopup(true);
         setErrorPopup(
           'Произошла ошибка при загрузке сохранённых фильмов. Попробуйте еще раз позднее.'
         );
       } finally {
         setIsLoading(false);
       }
-    },
-    []
-  );
+    };
+    getSavedMovies();
+  }, []);
 
   async function removeMovie(card) {
     try {
