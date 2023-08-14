@@ -5,9 +5,9 @@ import iconMain from './../../images/icon__COLOR_icon-main.svg';
 
 const MenuPopup = ({ isOpen, onClose }) => {
   const links = [
-    { title: 'Главная', path: '/' },
-    { title: 'Фильмы', path: '/movies' },
-    { title: 'Сохраненные фильмы', path: '/saved-movies' },
+    { title: 'Главная', path: '/', id: 1 },
+    { title: 'Фильмы', path: '/movies', id: 2 },
+    { title: 'Сохраненные фильмы', path: '/saved-movies', id: 3 },
   ];
 
   const { pathname } = useLocation();
@@ -30,8 +30,8 @@ const MenuPopup = ({ isOpen, onClose }) => {
           title="close"
         />
         <ul className="menu-popup__links">
-          {links.map((link, index) => (
-            <li key={index}>
+          {links.map((link) => (
+            <li key={link.id}>
               <NavLink
                 to={link.path}
                 className={`menu-popup__link ${

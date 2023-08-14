@@ -4,7 +4,9 @@ import { getTechs } from '../../../utils/techs';
 
 function Techs() {
   const techs = getTechs();
-  const techsElem = techs.map((item, i) => <Tech key={i} text={item} />);
+  const techsElem = techs.map((item) => (
+    <Tech key={item.id} text={item.text} />
+  ));
 
   return (
     <section className="techs">
