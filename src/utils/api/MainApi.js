@@ -36,15 +36,6 @@ export class MainApi extends Api {
     });
   }
 
-  getUserInfoData() {
-    return this._request(`${this.baseUrl}/users/me`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
-        'Content-Type': 'application/json',
-      },
-    });
-  }
-
   editProfile({ name, email }) {
     return this._request(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
@@ -55,19 +46,6 @@ export class MainApi extends Api {
       body: JSON.stringify({
         name,
         email,
-      }),
-    });
-  }
-
-  editProfileAvatar(link) {
-    return this._request(`${this.baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        avatar: link,
       }),
     });
   }
@@ -105,16 +83,6 @@ export class MainApi extends Api {
   deleteMovie(id) {
     return this._request(`${this.baseUrl}/movies/${id}`, {
       method: 'DELETE',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
-        'Content-Type': 'application/json',
-      },
-    });
-  }
-
-  changeLikeMovieStatus(id, state) {
-    return this._request(`${this.baseUrl}/movies/${id}/likes`, {
-      method: state,
       headers: {
         authorization: `Bearer ${localStorage.getItem('TOKEN')}`,
         'Content-Type': 'application/json',
