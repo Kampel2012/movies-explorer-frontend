@@ -11,6 +11,7 @@ function Profile() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const name = useInput(currentUser?.name, {
     isEmpty: true,
@@ -36,6 +37,7 @@ function Profile() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const updateUser = await api.main.editProfile({
         name: name.value,
         email: email.value,
@@ -50,6 +52,8 @@ function Profile() {
       } else {
         setError('Что-то пошло не так...');
       }
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -124,6 +128,7 @@ function Profile() {
               type="sumbit"
               className="profile__btn"
               disabled={
+                isLoading ||
                 !name.inputValid ||
                 !email.inputValid ||
                 (currentUser?.email === email.value &&

@@ -1,7 +1,7 @@
 import './SavedMoviesCard.css';
 import { Link } from 'react-router-dom';
 
-function SavedMoviesCard({ pathname = '/movies', card, removeMovie }) {
+function SavedMoviesCard({ card, removeMovie }) {
   const formatTime = (totalMinuts) => {
     const hours = Math.floor(totalMinuts / 60);
     const minutes = Math.floor(totalMinuts % 60);

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import FilterCheckbox from '../../UI/FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 
-function SearchForm({ filter, handleSubmitSearch }) {
+function SearchForm({ filter, handleSubmitSearch, isLoading }) {
   const [shortFilmsFilter, setShortFilmsFilter] = useState(filter.isShort);
   const [seachValue, setSearchValue] = useState(filter.partOfName);
 
@@ -34,7 +34,9 @@ function SearchForm({ filter, handleSubmitSearch }) {
               value={seachValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
-            <button className="search-form__submit-btn">Поиск</button>
+            <button disabled={isLoading} className="search-form__submit-btn">
+              Поиск
+            </button>
           </fieldset>
           <FilterCheckbox
             text={'Короткометражки'}

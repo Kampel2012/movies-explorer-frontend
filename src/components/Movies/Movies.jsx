@@ -115,7 +115,11 @@ function Movies() {
     <>
       <Header />
       <main className="movies">
-        <SearchForm filter={filter} handleSubmitSearch={handleOnSubmit} />
+        <SearchForm
+          filter={filter}
+          handleSubmitSearch={handleOnSubmit}
+          isLoading={isLoading}
+        />
         {isLoading ? (
           <Preloader />
         ) : (
