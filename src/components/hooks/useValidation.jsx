@@ -6,7 +6,6 @@ function useValidation(value, validations) {
   const [maxLengthError, setMaxLengthError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [nameError, setNameError] = useState('');
-
   const [inputValid, setInputValid] = useState(false);
 
   useEffect(() => {
