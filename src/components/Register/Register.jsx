@@ -10,6 +10,7 @@ function Register() {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const email = useInput('', {
     isEmpty: true,
@@ -40,6 +41,7 @@ function Register() {
   async function onSubmit(e) {
     e.preventDefault();
     try {
+      setIsLoading(true);
       await api.main.signup({
         email: email.value,
         password: password.value,
@@ -57,6 +59,8 @@ function Register() {
       } else {
         setError('Что-то пошло не так...');
       }
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -154,7 +158,8 @@ function Register() {
               !email.inputValid ||
               !password.inputValid ||
               !name.inputValid ||
-              error
+              error ||
+              isLoading
             }
             type="submit"
             className="register__button">

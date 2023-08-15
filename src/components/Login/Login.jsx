@@ -9,6 +9,7 @@ import useInput from '../hooks/useInput';
 function Login() {
   const [error, setError] = useState('');
   const { isAuth, setIsAuth } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const email = useInput('', {
     isEmpty: true,
@@ -32,6 +33,7 @@ function Login() {
   async function onSubmit(e) {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const { jwt: token } = await api.main.signin({
         email: email.value,
         password: password.value,
@@ -44,6 +46,8 @@ function Login() {
       } else {
         setError('Что-то пошло не так...');
       }
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -116,7 +120,9 @@ function Login() {
           <button
             type="submit"
             className="login__button"
-            disabled={!email.inputValid || !password.inputValid || error}>
+            disabled={
+              !email.inputValid || !password.inputValid || error || isLoading
+            }>
             Войти
           </button>
           <p className="login__question">
