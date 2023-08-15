@@ -25,7 +25,7 @@ function Login() {
 
   useEffect(() => {
     if (isAuth) {
-      navigate('/');
+      navigate('/movies', { replace: true });
     }
   }, [isAuth, navigate]);
 

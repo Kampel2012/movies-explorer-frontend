@@ -65,7 +65,7 @@ function Profile() {
 
   return (
     <>
-      <Header isAuth={true} />
+      <Header />
       <main className="profile">
         <form className="profile__container" onSubmit={handleSubmit}>
           <div className="profile__info">

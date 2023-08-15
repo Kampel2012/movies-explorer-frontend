@@ -65,7 +65,7 @@ function SavedMovies() {
 
   return (
     <>
-      <Header isAuth={true} />
+      <Header />
       <main className="saved-movies">
         <SearchForm filter={filter} handleSubmitSearch={setFilter} />
 

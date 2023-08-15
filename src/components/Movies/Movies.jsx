@@ -113,7 +113,7 @@ function Movies() {
 
   return (
     <>
-      <Header isAuth={true} />
+      <Header />
       <main className="movies">
         <SearchForm filter={filter} handleSubmitSearch={handleOnSubmit} />
         {isLoading ? (
