@@ -1,41 +1,65 @@
 import './MoviesCard.css';
 import markcheck from '../../../images/check-mark-black-outline.png';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-function MoviesCard({ isSaved, pathname = '/movies' }) {
-  const bntElement =
-    pathname === '/saved-movies' ? (
-      <button type="button" className="movies-card__button">
-        &#215;
-      </button>
-    ) : isSaved ? (
-      <button
-        type="button"
-        className="movies-card__button movies-card__button_type_saved">
-        <img
-          src={markcheck}
-          alt="Сохранено"
-          className="movies-card__image movies-card__image_type_saved"
-        />
-      </button>
-    ) : (
-      <button type="button" className="movies-card__button">
-        Сохранить
-      </button>
-    );
+function MoviesCard({ card, _id, saveMovie, removeMovie }) {
+  const formatTime = (totalMinuts) => {
+    const hours = Math.floor(totalMinuts / 60);
+    const minutes = Math.floor(totalMinuts % 60);
+    return `${hours > 0 ? String(hours) + 'ч' : ''} ${String(minutes)}м`;
+  };
+  const [saved, setSaved] = useState(Boolean(_id));
+
+  async function handleSaveMovie() {
+    const res = await saveMovie(card);
+    if (res) setSaved(true);
+  }
+
+  async function handleRemoveMovie() {
+    const res = await removeMovie(_id);
+    if (res) setSaved(false);
+  }
+
+  const bntElement = saved ? (
+    <button
+      type="button"
+      onClick={handleRemoveMovie}
+      className="movies-card__button movies-card__button_type_saved">
+      <img
+        src={markcheck}
+        alt="Сохранено"
+        className="movies-card__image movies-card__image_type_saved"
+      />
+    </button>
+  ) : (
+    <button
+      type="button"
+      className="movies-card__button"
+      onClick={handleSaveMovie}>
+      Сохранить
+    </button>
+  );
 
   return (
     <article className="movies-card">
       <div className="movies-card__info">
-        <h2 className="movies-card__title">В погоне за Бенкси</h2>
-        <p className="movies-card__time">27 минут</p>
+        <h2 className="movies-card__title">{card.nameRU}</h2>
+        <p className="movies-card__time">{formatTime(card.duration)}</p>
       </div>
-      <img
-        src={
-          'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663323054_20-mykaleidoscope-ru-p-yelizaveta-shakira-krasivo-20.jpg'
-        }
-        alt="В погоне за Бенкси"
-        className="movies-card__image"
-      />
+      <div className="movies-card__wrapper">
+        <Link
+          className="movies-card__link"
+          to={`${card.trailerLink}`}
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src={`https://api.nomoreparties.co/${card.image.url}`}
+            alt={card.description}
+            className="movies-card__image"
+          />
+        </Link>
+      </div>
       {bntElement}
     </article>
   );

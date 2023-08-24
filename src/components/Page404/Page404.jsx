@@ -7,7 +7,7 @@ function Page404(props) {
       <div className="page404__container">
         <h1 className="page404__title">404</h1>
         <p className="page404__subtitle">Страница не найдена</p>
-        <Link to={'/'} className="page404__link">
+        <Link to={-1} className="page404__link">
           Назад
         </Link>
       </div>

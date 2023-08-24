@@ -61,7 +61,6 @@
   color: white;
   border: none;
   cursor: pointer;
-  margin-top: 152px;
 }
 
 .register__question {
@@ -78,6 +77,19 @@
   color: rgba(66, 133, 244, 1);
 }
 
+.register__error {
+  color: #ee3465;
+  margin-top: 5px;
+}
+
+.register__error_type_bottom {
+  margin: 0 auto 5px auto;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}
+
 .register__link:hover {
   opacity: 0.7;
 }
@@ -90,8 +102,16 @@
   opacity: 0.8;
 }
 
+.register__button:disabled {
+  opacity: 0.7;
+}
+
 .register__form-label:not(:last-child) {
   margin-bottom: 25px;
+}
+
+.register__wrapper_type_bottom {
+  margin-top: 152px;
 }
 
 @media screen and (max-width: 768px) {
@@ -121,6 +141,9 @@
 
   .register__button {
     font-size: 12px;
+  }
+
+  .register__wrapper_type_bottom {
     margin-top: 240px;
   }
 

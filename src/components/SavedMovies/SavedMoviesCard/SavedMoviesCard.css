@@ -1,4 +1,4 @@
-.movies-card {
+.saved-movies-card {
   max-width: 100%;
   text-align: center;
   border-radius: 6px;
@@ -9,7 +9,7 @@
   grid-column: 1fr;
 }
 
-.movies-card__info {
+.saved-movies-card__info {
   display: flex;
   justify-content: space-between;
   gap: 14px;
@@ -17,7 +17,7 @@
   padding: 18px;
 }
 
-.movies-card__title {
+.saved-movies-card__title {
   text-align: left;
   color: #fff;
   font-size: 15px;
@@ -27,7 +27,7 @@
   margin: 0;
 }
 
-.movies-card__time {
+.saved-movies-card__time {
   padding: 0;
   margin: 0;
   color: #8b8b8b;
@@ -38,30 +38,30 @@
   white-space: nowrap;
 }
 
-.movies-card__image {
+.saved-movies-card__image {
   max-width: 100%;
   max-height: 200px;
   margin: 0 auto;
 }
 
-.movies-card__link {
+.saved-movies-card__link {
   max-width: 100%;
   max-height: 200px;
   margin: 0 auto;
   cursor: pointer;
 }
 
-.movies-card__link:hover {
+.saved-movies-card__link:hover {
   opacity: 0.7;
 }
 
-.movies-card__wrapper {
+.saved-movies-card__wrapper {
   flex-grow: 1;
   display: flex;
   align-items: center;
 }
 
-.movies-card__button {
+.saved-movies-card__button {
   text-align: center;
   margin: 18px auto;
   padding: 9px 15px;
@@ -77,45 +77,45 @@
   height: 29px;
 }
 
-.movies-card__button:hover {
+.saved-movies-card__button:hover {
   opacity: 0.8;
 }
 
-.movies-card__button_type_saved {
+.saved-movies-card__button_type_saved {
   background-color: rgba(238, 52, 101, 1);
 }
 
-.movies-card__image_type_saved {
+.saved-movies-card__image_type_saved {
   width: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .movies-card__image {
+  .saved-movies-card__image {
     max-height: 190px;
   }
 }
 
 @media screen and (max-width: 350px) {
-  .movies-card__image {
+  .saved-movies-card__image {
     max-height: 168px;
   }
 
-  .movies-card__info {
+  .saved-movies-card__info {
     padding: 14px;
   }
 
-  .movies-card__title {
+  .saved-movies-card__title {
     font-size: 12px;
     line-height: 18px;
   }
 
-  .movies-card__time {
+  .saved-movies-card__time {
     font-size: 10px;
     font-weight: 400;
     line-height: 18px;
   }
 
-  .movies-card__button {
+  .saved-movies-card__button {
     margin: 14px auto;
   }
 }

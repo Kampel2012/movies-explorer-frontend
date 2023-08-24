@@ -6,10 +6,10 @@ import Portfolio from './Portfolio/Portfolio';
 import Promo from './Promo/Promo';
 import Techs from './Techs/Techs';
 
-function Main(props) {
+function Main() {
   return (
     <>
-      <Header isAuth={false} />
+      <Header />
       <main className="main">
         <Promo />
         <AboutProject />

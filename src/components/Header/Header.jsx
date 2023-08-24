@@ -3,10 +3,13 @@ import logo from './../../images/logo.svg';
 import './Header.css';
 import { useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
-function Header({ isAuth }) {
+function Header() {
   const { pathname } = useLocation();
   const headerStyle = pathname === '/' ? 'header header_type_main' : 'header';
+  const { isAuth } = useContext(AuthContext);
 
   return (
     <header className={headerStyle}>

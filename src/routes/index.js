@@ -5,6 +5,7 @@ import Profile from './../components/Profile/Profile';
 import Login from './../components/Login/Login';
 import Register from './../components/Register/Register';
 import Page404 from '../components/Page404/Page404';
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 
 const routes = [
   {
@@ -13,15 +14,15 @@ const routes = [
   },
   {
     path: '/movies',
-    element: <Movies />,
+    element: <ProtectedRoute element={Movies} />,
   },
   {
     path: '/saved-movies',
-    element: <SavedMovies />,
+    element: <ProtectedRoute element={SavedMovies} />,
   },
   {
     path: '/profile',
-    element: <Profile />,
+    element: <ProtectedRoute element={Profile} />,
   },
   {
     path: '/signin',
